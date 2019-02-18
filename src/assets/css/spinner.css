@@ -1,0 +1,17 @@
+.spinnerWrapper {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+}
+
+.spinnerContainer {
+    margin: auto;
+    max-height: 100%
+}
