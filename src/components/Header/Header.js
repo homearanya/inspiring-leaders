@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Sticky from "react-sticky-el";
 
-import Logo from "../Logo";
+import Logo from "../../../Logo";
 import { Menu } from "../Menu";
-import Social from "../Social";
+// import Social from "../Social";
 
 import "./header.css";
 
@@ -77,10 +77,10 @@ export class Header extends Component {
                 handleToggleMenu={this.toggleMenu}
                 currentPageSlug={this.props.currentPageSlug}
               />
-              <Social
+              {/* <Social
                 classes="text-right hidden-xs hidden-sm"
                 inputColor="#91d0cc"
-              />
+              /> */}
             </div>
           </div>
         </header>

@@ -1,9 +1,18 @@
 import React from "react";
 import Img from "gatsby-image";
+import styled from "styled-components";
+
+import SlideLinks from "./SlideLinks";
+
+const StyledDescription = styled.div`
+  @media (min-width: 992px) {
+    margin-top: ${props => (props.hasLinks ? "-200px" : undefined)};
+  }
+`;
 
 export default function Slide(props) {
   return (
-    <div>
+    <React.Fragment>
       <Img
         fluid={props.imageFluid}
         alt={props.imageAlt}
@@ -13,7 +22,10 @@ export default function Slide(props) {
         <div className="row">
           <div className="col-sm-12 text-center">
             <div className="slide_description_wrapper">
-              <div className="slide_description">
+              <StyledDescription
+                className="slide_description"
+                hasLinks={props.links && props.links.length > 0}
+              >
                 <div className="intro-layer" data-animation="fadeInRight">
                   <h3>
                     {props.heading1}
@@ -28,11 +40,12 @@ export default function Slide(props) {
                 <div className="intro-layer" data-animation="fadeInLeft">
                   <p className="small-text grey">{props.subheading}</p>
                 </div>
-              </div>
+              </StyledDescription>
+              <SlideLinks links={props.links} />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }

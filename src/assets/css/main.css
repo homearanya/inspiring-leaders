@@ -8643,7 +8643,8 @@ body.active-side-header.slide-right .page_header_side {
 
 /* Desktop menu - (min 992px) styles */
 
-.sf-menu a {
+.sf-menu a,
+.sf-menu button {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -8674,7 +8675,8 @@ body.active-side-header.slide-right .page_header_side {
     .sf-menu li.sfHover>ul {
         display: block;
     }
-    .sf-menu a {
+    .sf-menu a,
+    .sf-menu button {
         display: block;
         position: relative;
     }
@@ -8686,7 +8688,8 @@ body.active-side-header.slide-right .page_header_side {
     .sf-menu ul li {
         padding: 0 30px;
     }
-    .sf-menu a {
+    .sf-menu a,
+    .sf-menu button {
         padding: 15px 0;
         text-decoration: none;
         zoom: 1;
@@ -8770,7 +8773,8 @@ body.active-side-header.slide-right .page_header_side {
         box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
         min-width: 220px;
     }
-    .sf-menu ul a {
+    .sf-menu ul a,
+    .sf-menu ul button {
         color: #444444;
     }
     .sf-menu .mega-menu ul {
@@ -8781,7 +8785,9 @@ body.active-side-header.slide-right .page_header_side {
         padding-right: 0;
     }
     .sf-menu ul a:hover,
-    .sf-menu ul li.active>a {
+    .sf-menu ul button:hover,
+    .sf-menu ul li.active>a,
+    .sf-menu ul li.active>button {
         color: #91d0cc;
     }
     /* third level */
@@ -8789,11 +8795,13 @@ body.active-side-header.slide-right .page_header_side {
         margin-top: 0;
         margin-left: 1px;
     }
-    .sf-menu ul a {
+    .sf-menu ul a,
+    .sf-menu ul button {
         padding-left: 15px;
         position: relative;
     }
-    .sf-menu ul a:before {
+    .sf-menu ul a:before,
+    .sf-menu ul button:before {
         content: "";
         position: absolute;
         top: 50%;
@@ -8807,12 +8815,14 @@ body.active-side-header.slide-right .page_header_side {
         -webkit-transition: all 0.2s linear 0s;
         transition: all 0.2s linear 0s;
     }
-    .sf-menu ul a:hover:before {
+    .sf-menu ul a:hover:before,
+    .sf-menu ul button:hover:before {
         background-color: #91d0cc;
     }
 }
 
-.sf-menu ul>li+li>a {
+.sf-menu ul>li+li>a,
+.sf-menu ul>li+li>button {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -9046,7 +9056,8 @@ body.active-side-header.slide-right .page_header_side {
         background-color: #111;
         background-color: rgba(0, 0, 0, 0.9);
     }
-    .nav-justified>li>a {
+    .nav-justified>li>a,
+    .nav-justified>li>button {
         text-align: left;
     }
     .sf-menu {
@@ -9071,24 +9082,29 @@ body.active-side-header.slide-right .page_header_side {
         right: 15px;
     }
     .sf-menu>li>a,
-    .sf-menu a {
+    .sf-menu>li>button,
+    .sf-menu a,
+    .sf-menu button {
         color: #ffffff;
     }
     .sf-menu ul {
         list-style: none;
         padding-left: 10px;
     }
-    .sf-menu ul li a {
+    .sf-menu ul li a,
+    .sf-menu ul li button {
         display: block;
         padding: 10px;
         font-weight: 300;
         font-size: 16px;
         text-transform: none;
     }
-    .sf-menu ul li a:before {
+    .sf-menu ul li a:before,
+    .sf-menu ul li button:before {
         content: '-';
         padding-right: 5px;
     }
+    .sf-menu ul ul li button:before,
     .sf-menu ul ul li a:before {
         content: '--';
         padding-right: 5px;
@@ -9113,18 +9129,22 @@ body.active-side-header.slide-right .page_header_side {
 /* Mega Menu */
 
 @media screen and (min-width: 992px) {
-    .sf-menu>li .mega-menu .mega-menu-row>li>a {
+    .sf-menu>li .mega-menu .mega-menu-row>li>a,
+    .sf-menu>li .mega-menu .mega-menu-row>li>button {
         border-top: none;
     }
-    .sf-menu .mega-menu-col>a {
+    .sf-menu .mega-menu-col>a,
+    .sf-menu .mega-menu-col>button {
         padding-left: 0;
     }
+    .sf-menu .mega-menu-col>button:before,
     .sf-menu .mega-menu-col>a:before {
         display: none;
     }
     .sf-menu .mega-menu-col li {
         padding: 0;
     }
+    .sf-menu .mega-menu-col li button,
     .sf-menu .mega-menu-col li a {
         padding-top: 15px;
         padding-bottom: 15px;
@@ -9163,6 +9183,7 @@ body.active-side-header.slide-right .page_header_side {
         border-left: 1px solid #ebebeb;
         /* overrides from settings / styling / mega-menu */
     }
+    .mainmenu_wrapper .mega-menu-col>button,
     .mainmenu_wrapper .mega-menu-col>a {
         font-size: 16px;
         text-transform: uppercase;

@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SliderArea from "../components/SliderArea";
 import ServicesArea from "../components/ServicesArea";
-import AboutArea from "../components/AboutArea";
+// import AboutArea from "../components/AboutArea";
 import CoursesArea from "../components/CoursesArea";
 import ArticlesArea from "../components/ArticlesArea";
 import TestimonialsArea from "../components/TestimonialsArea";
@@ -38,11 +38,21 @@ export default ({ data, location }) => {
 
       <SliderArea slider={frontmatter.slider} />
       <ServicesArea
-        id="services"
+        id="leadership-development"
         servicesObject={servicesObject}
-        servicesArea={frontmatter.servicesArea}
+        servicesArea={frontmatter.ldArea}
       />
-      <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
+      <ServicesArea
+        id="employee-wellness-support"
+        servicesObject={servicesObject}
+        servicesArea={frontmatter.ewsArea}
+        noPadding
+      />
+      {/* <AboutArea aboutMeArea={frontmatter.aboutMeArea} /> */}
+      {frontmatter.testimonialsArea &&
+        frontmatter.testimonialsArea.testimonials.length > 0 && (
+          <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
+        )}
       <CoursesArea
         coursesArea={frontmatter.coursesArea}
         siteUrl={location.origin}
@@ -51,13 +61,9 @@ export default ({ data, location }) => {
         articlesArea={frontmatter.articlesArea}
         siteUrl={location.origin}
       />
-      {frontmatter.testimonialsArea &&
-        frontmatter.testimonialsArea.testimonials.length > 0 && (
-          <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
-        )}
       {/* <FaqArea />
     <PricesArea /> */}
-      <AppointmentArea />
+        <AppointmentArea noTopPadding />
     </Layout>
   );
 };
@@ -103,41 +109,41 @@ export const homePageQuery = graphql`
               }
             }
           }
-        }
-        servicesArea {
-          heading
-          blurb
-          services {
-            service
+          links {
+            name
+            link
+            image {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 300, maxHeight: 150) {
+                    ...GatsbyImageSharpFluid_noBase64
+                  }
+                }
+              }
+            }
           }
         }
-        aboutMeArea {
-          heading1
-          heading2
+        ldArea {
+          heading
           blurb {
             paragraphs {
               paragraph
             }
           }
-          personPicture {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          services {
+            service
+          }
+        }
+        ewsArea {
+          heading
+          blurb {
+            paragraphs {
+              paragraph
             }
           }
-          backgroundImage {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+          services {
+            service
           }
         }
         coursesArea {

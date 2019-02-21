@@ -35,17 +35,35 @@ const StyledSubMenu = styled.ul`
 export class SubMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = { moveLeft: false };
+    this.state = { moveLeft: false, subMenuWidth: 0 };
     this.subMenuRef = React.createRef();
   }
   componentDidUpdate(prevProps, prevState) {
     if (this.props.viewPortWidth < 992) return;
-    if (this.state.moveLeft) return;
     if (this.subMenuRef && this.subMenuRef.current) {
       const subMenu = this.subMenuRef.current;
       const subMenuDimensions = subMenu.getBoundingClientRect();
+      if (
+        Math.round(subMenuDimensions.width * 100) / 100 ===
+        Math.round(this.state.subMenuWidth * 100) / 100
+      )
+        return;
+      if (this.state.moveLeft) {
+        this.setState({
+          moveLeft: false
+        });
+        return;
+      }
       if (subMenuDimensions.right > this.props.viewPortWidth) {
-        this.setState({ moveLeft: true });
+        this.setState({
+          moveLeft: true,
+          subMenuWidth: subMenuDimensions.width
+        });
+      } else {
+        this.setState({
+          moveLeft: false,
+          subMenuWidth: subMenuDimensions.width
+        });
       }
     }
   }

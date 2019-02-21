@@ -34,8 +34,8 @@ const StyledLink = styled(Link)`
 const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   background: none;
   border: ${props => (props.depthLevel < 0 ? "none" : undefined)};
-  border-top: ${props =>
-    props.depthLevel >= 0 ? "1px solid rgba(0, 0, 0, 0.1)" : undefined};
+  /* border-top: ${props =>
+    props.depthLevel >= 0 ? "1px solid rgba(0, 0, 0, 0.1)" : undefined}; */
   cursor: ${props => (props.depthLevel >= 0 ? "pointer" : "auto")};
 
   color: ${props => (props.isActive ? "#91d0cc" : "white")};
@@ -54,10 +54,10 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   -moz-appearance: none;
   width: 100%;
 
-  ::before {
+  /* ::before {
     content: ${props => (props.depthLevel >= 0 ? `"-"` : undefined)};
     padding-right: ${props => (props.depthLevel >= 0 ? "5px" : undefined)};
-  }
+  } */
 
   :hover,
   :focus {
@@ -66,9 +66,12 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   }
 
   @media (min-width: 992px) {
-    color: ${props => (props.isActive ? "#91d0cc" : "#444444")};
-    margin: 0 15px;
-    padding: ${props => (props.$isSticky ? "25px 0" : "25px 0")};
+    &&& {
+      color: ${props => (props.isActive ? "#91d0cc" : "#444444")};
+      margin: 0 15px;
+      padding-top: ${props => (props.$isSticky ? "25px" : "25px")};
+      padding-bottom: ${props => (props.$isSticky ? "25px" : "25px")};
+    }
   }
 `;
 
@@ -146,7 +149,8 @@ export default function MenuItems(props) {
           )}
           {/* Sub Menu */}
 
-          {props.showSubMenu[props.depthLevel + 1] === index &&
+          {props.showSubMenu[props.depthLevel + 1] &&
+            props.showSubMenu[props.depthLevel + 1][index] &&
             menuItem.subMenu &&
             menuItem.subMenu.subMenuItems.length > 0 && (
               <SubMenu
@@ -161,6 +165,7 @@ export default function MenuItems(props) {
                 hideSubMenu={props.hideSubMenu}
                 moveLeft={props.moveLeft}
                 passedRef={props.subMenuRef}
+                index={index}
               />
             )}
         </li>

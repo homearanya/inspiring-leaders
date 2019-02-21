@@ -56,12 +56,44 @@ collections:
                       widget: text,
                       hint: "Please inform. Important for SEO",
                     }
-          - label: "Services Area"
-            name: servicesArea
+              - label: Links
+                label_singular: link
+                name: links
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Slug, name: slug, widget: string }
+                  - label: Image
+                    name: image
+                    widget: object
+                    fields:
+                      - {
+                          label: Image,
+                          name: image,
+                          widget: image,
+                          hint: "size 1600 x 700",
+                        }
+                      - {
+                          label: Title,
+                          name: alt,
+                          widget: text,
+                          hint: "Please inform. Important for SEO",
+                        }
+          - label: "Leadership Development Area"
+            name: ldArea
             widget: object
             fields:
               - { label: Heading, name: heading, widget: string }
-              - { label: Blurb, name: blurb, widget: text }
+              - label: Blurb, 
+                name: blurb
+                widget: object
+                fields:
+                  - label: Paragraphs
+                    label_singular: "Paragraph"
+                    name: paragraphs
+                    widget: list
+                    fields:
+                      - { label: Paragraph, name: paragraph, widget: text }
               - label: Services
                 label_singular: "Service"
                 name: services
@@ -75,18 +107,12 @@ collections:
                     valueField: "title"
                     displayFields: ["title"]
                     hint: Very important!!!! It has to be exactly the same name as of the service on the services colection
-          - label: "About Me Area"
-            name: aboutMeArea
+          - label: "Employee Wellness Support Area"
+            name: ewsArea
             widget: object
             fields:
-              - { label: Heading Line 1, name: heading1, widget: string }
-              - {
-                  label: Heading Line 2,
-                  name: heading2,
-                  widget: string,
-                  required: false,
-                }
-              - label: Blurb
+              - { label: Heading, name: heading, widget: string }
+              - label: Blurb, 
                 name: blurb
                 widget: object
                 fields:
@@ -96,39 +122,72 @@ collections:
                     widget: list
                     fields:
                       - { label: Paragraph, name: paragraph, widget: text }
-              - label: "Person Picture"
-                name: personPicture
-                widget: object
+              - label: Services
+                label_singular: "Service"
+                name: services
+                widget: list
                 fields:
-                  - {
-                      label: Image,
-                      name: image,
-                      widget: image,
-                      hint: "size 492 x 699",
-                    }
-                  - {
-                      label: Title,
-                      name: alt,
-                      widget: text,
-                      hint: "Please inform. Important for SEO",
-                    }
-              - label: "Background Image"
-                name: backgroundImage
-                widget: object
-                fields:
-                  - {
-                      label: Image,
-                      name: image,
-                      widget: image,
-                      hint: "size 1920 x 890",
-                    }
-                  - {
-                      label: Title,
-                      name: alt,
-                      widget: text,
-                      hint: "Please inform. Important for SEO",
-                    }
-                
+                  - label: "Service"
+                    name: "service"
+                    widget: "relation"
+                    collection: "services"
+                    searchFields: ["title"]
+                    valueField: "title"
+                    displayFields: ["title"]
+                    hint: Very important!!!! It has to be exactly the same name as of the service on the services colection
+          # - label: "About Me Area"
+          #   name: aboutMeArea
+          #   widget: object
+          #   fields:
+          #     - { label: Heading Line 1, name: heading1, widget: string }
+          #     - {
+          #         label: Heading Line 2,
+          #         name: heading2,
+          #         widget: string,
+          #         required: false,
+          #       }
+          #     - label: Blurb
+          #       name: blurb
+          #       widget: object
+          #       fields:
+          #         - label: Paragraphs
+          #           label_singular: "Paragraph"
+          #           name: paragraphs
+          #           widget: list
+          #           fields:
+          #             - { label: Paragraph, name: paragraph, widget: text }
+              # - label: "Person Picture"
+              #   name: personPicture
+              #   widget: object
+              #   fields:
+              #     - {
+              #         label: Image,
+              #         name: image,
+              #         widget: image,
+              #         hint: "size 492 x 699",
+              #       }
+              #     - {
+              #         label: Title,
+              #         name: alt,
+              #         widget: text,
+              #         hint: "Please inform. Important for SEO",
+              #       }
+              # - label: "Background Image"
+              #   name: backgroundImage
+              #   widget: object
+              #   fields:
+              #     - {
+              #         label: Image,
+              #         name: image,
+              #         widget: image,
+              #         hint: "size 1920 x 890",
+              #       }
+              #     - {
+              #         label: Title,
+              #         name: alt,
+              #         widget: text,
+              #         hint: "Please inform. Important for SEO",
+              #       }
           - label: "Courses Area"
             name: coursesArea
             widget: object
@@ -175,6 +234,364 @@ collections:
             required: false
             fields:
               - { label: Image, name: image, widget: image, hint: "1600 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }                  
+
+      - file: "src/pages/leadership-development/training-programmes.md"
+        label: "Leadership Development - Training Programmes"
+        name: "ldTrainingPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Excerpt", 
+                  name: excerpt, 
+                  widget: text, 
+                  hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+                }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Thumbnail Image"
+            name: thumbnailimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "80 x 90" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
+      - file: "src/pages/leadership-development/seminars.md"
+        label: "Leadership Development - Seminars"
+        name: "ldSeminarsPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Excerpt", 
+                  name: excerpt, 
+                  widget: text, 
+                  hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+                }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Thumbnail Image"
+            name: thumbnailimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "80 x 90" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
+      - file: "src/pages/leadership-development/upcoming-courses.md"
+        label: "Leadership Development - Upcoming Courses"
+        name: "ldCoursesPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Excerpt", 
+                  name: excerpt, 
+                  widget: text, 
+                  hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+                }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Thumbnail Image"
+            name: thumbnailimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "80 x 90" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
+      - file: "src/pages/employee-wellness-support/talks-workshops.md"
+        label: "Employee Wellness Support - Talks & Workshops Page"
+        name: "ewsTalksWorkshopsPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Excerpt", 
+                  name: excerpt, 
+                  widget: text, 
+                  hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+                }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Thumbnail Image"
+            name: thumbnailimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "80 x 90" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "List of Topics"
+            label_singular: "Topic"
+            name: topics
+            widget: list
+            fields:
+              - { label: Topic, name: topic, widget: text }
+              - label: Content
+                name: content
+                widget: object
+                fields:
+                  - label: Paragraphs
+                    label_singular: "Paragraph"
+                    name: paragraphs
+                    widget: list
+                    fields:
+                      - { label: Paragraph, name: paragraph, widget: text }
+
+      - file: "src/pages/employee-wellness-support/personal-counselling.md"
+        label: "Employee Wellness Support - Personal Counselling"
+        name: "ewsCounsellingPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Excerpt", 
+                  name: excerpt, 
+                  widget: text, 
+                  hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+                }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Thumbnail Image"
+            name: thumbnailimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "80 x 90" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
+      - file: "src/pages/employee-wellness-support/mindfulness-training.md"
+        label: "Employee Wellness Support - Mindfulness Training"
+        name: "ewsMindulnessPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Excerpt", 
+                  name: excerpt, 
+                  widget: text, 
+                  hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+                }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Thumbnail Image"
+            name: thumbnailimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "80 x 90" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
               - {
                   label: Title,
                   name: alt,
@@ -241,7 +658,6 @@ collections:
                   widget: text,
                   hint: "Please inform. Important for SEO",
                 }
-
     editor:
       preview: false
 
@@ -315,228 +731,6 @@ collections:
     editor:
       preview: false
 
-  - name: "mindfulnessTraining"
-    label: "Mindfulness Training"
-    files:
-      - file: "src/pages/services/mindfulness-training/mindfulness-based-stress-reduction-course.md"
-        label: "Mindfulness-Based Stress Reduction Course"
-        name: "mbsrc"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Excerpt", 
-              name: excerpt, 
-              widget: text, 
-              hint: "Please inform. Max 160 characters. Important for SEO." 
-            }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "Banner Image"
-            name: bannerimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-          - label: "Body Image"
-            name: bodyimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "370 x 490" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-              - label: "Testimonials Area"
-                name: testimonialsArea
-                widget: object
-                fields:
-                  - label: "Testimonials"
-                    label_singular: "Testimonial"
-                    name: testimonials
-                    widget: list
-                    fields:
-                      - { label: Quote, name: quote, widget: text }
-                      - { label: Author, name: author, widget: string }
-
-
-      - file: "src/pages/services/mindfulness-training/mindfulness-based-pain-management-course.md"
-        label: "Mindfulness-Based Pain Management Course"
-        name: "mbpmc"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Excerpt", 
-              name: excerpt, 
-              widget: text, 
-              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
-            }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "Banner Image"
-            name: bannerimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-          - label: "Body Image"
-            name: bodyimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "370 x 490" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-              - label: "Testimonials Area"
-                name: testimonialsArea
-                widget: object
-                fields:
-                  - label: "Testimonials"
-                    label_singular: "Testimonial"
-                    name: testimonials
-                    widget: list
-                    fields:
-                      - { label: Quote, name: quote, widget: text }
-                      - { label: Author, name: author, widget: string }
-                      
-      - file: "src/pages/services/mindfulness-training/frequently-asked-questions.md"
-        label: "Frequently Asked Questions"
-        name: "faq"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Excerpt", 
-              name: excerpt, 
-              widget: text, 
-              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
-            }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "List of Questions-Answers"
-            label_singular: "Question-Answer"
-            name: qa
-            widget: list
-            fields:
-              - { label: Question, name: question, widget: text }
-              - { label: Answer, name: answer, widget: text }
-          - label: "Banner Image"
-            name: bannerimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-          - label: "Body Image"
-            name: bodyimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "370 x 490" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-
-      - file: "src/pages/services/mindfulness-training/upcoming-courses.md"
-        label: "Upcoming Courses Page"
-        name: "upcomingCourses"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Excerpt", 
-              name: excerpt, 
-              widget: text, 
-              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
-            }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "Banner Image"
-            name: bannerimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "1600 x 195" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-          - label: "Body Image"
-            name: bodyimage
-            widget: object
-            required: false
-            fields:
-              - { label: Image, name: image, widget: image, hint: "370 x 490" }
-              - {
-                  label: Title,
-                  name: alt,
-                  widget: text,
-                  hint: "Please inform. Important for SEO",
-                }
-                
-      - file: "src/general/mindfulness-training-menu.md"
-        label: "Mindfulness Traing Menu"
-        name: "mtMenu"
-        fields:
-          - label: Menu Items
-            label_singular: "Menu Item"
-            name: menuItems
-            widget: list
-            required: false
-            fields:
-              - { label: Name, name: name, widget: string }
-              - {
-                  label: Link,
-                  name: link,
-                  widget: string,
-                  required: false,
-                  hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
-                }
-    editor:
-      preview: false
-
   - name: upcomingCourses
     label: "Upcoming Courses"
     label_singular: "course"
@@ -559,13 +753,23 @@ collections:
       - {
         label: "Name of Course",
         name: "courseName",
+        widget: "string"
+      }
+      - {
+        label: "Service Related",
+        name: "serviceRelated",
         widget: "relation",
-        collection: "mindfulnessTraining",
+        collection: "pages",
         searchFields: ["title"],
         valueField: "title",
         displayFields: ["title"],
         hint: Very important!!!! It has to be exactly the same name as of the course on the Mindfulness Training colection
-      }
+      }      
+      - {
+        label: "Subheading",
+        name: "subheading",
+        widget: "string"
+      }      
       - {
           label: "Start Date of Event",
           name: "dateStart",

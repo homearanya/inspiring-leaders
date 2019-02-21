@@ -51,6 +51,7 @@ export default function UpcomingCourse({
               <CourseHeader
                 url={courseSlug}
                 heading={courseInfo.courseName}
+                subheading={courseInfo.subheading}
                 venue={courseInfo.venue}
                 dateStart={courseInfo.dateStart}
                 dateEnd={courseInfo.dateEnd}

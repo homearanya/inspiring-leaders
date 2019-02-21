@@ -41,7 +41,7 @@ export default function UpcomingCourse({
     // contentClassName = "col-md-10 col-md-push-1";
     contentClassName = "";
   }
-  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`;
+  const courseUrl = `${siteUrl}/leadership-development/upcoming-courses/`;
   return (
     <StyledArticle className="post side-item content-padding with_shadow">
       <div className="row">
@@ -61,6 +61,7 @@ export default function UpcomingCourse({
             <CourseHeader
               url={courseSlug}
               heading={courseInfo.courseName}
+              subheading={courseInfo.subheading}
               venue={courseInfo.venue}
               dateStart={courseInfo.dateStart}
               dateEnd={courseInfo.dateEnd}

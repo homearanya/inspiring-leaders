@@ -4,10 +4,17 @@ excerpt: "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. 
 bannerimage:
   alt: Man meditating by a lake
   image: /img/articles-banner.jpg
+bodyimage:
+  alt: Alistair Mork-Chadwick on a counselling sessionws
+  image: /img/alistair-mork-chadwick.jpg
 ---
 
-As is the case with many health professionals whose work is influenced by life events, I too have embraced my personal experiences alongside new research and trends during my career as a psychologist.
+I am a psychologist and training facilitator. In my work with organisations I draw on the latest research findings, specifically those which deal with supporting optimal levels of work engagement, cultivating a mindful approach to work, and building emotional intelligence.
 
-My own experience of Irritable Bowel Syndrome (IBS) and a regularly fluctuating mood drove me to delve deeply into the underlying causes of these common problems. This has led me to focus less on symptoms and diagnoses with clients, and to give more attention to the possible causes of mental health difficulties. Such causes include not only unprocessed emotions from childhood but also one’s current interpersonal relationships, movement and exercise habits, food choices, and sleep patterns, amongst other factors.
+> “All of my roles involve helping individuals and groups to implement lasting, positive change.”
 
-My professional life has been spent talking and listening to people from all walks of life, making sense of complex information, incorporating current clinical research findings into my practice, and collaborating with other health professionals, all with the focused intention of helping people implement lasting, positive change in their lives.
+I have an extensive background and personal commitment to embodying mindfulness and emotional intelligence skills. I have spent years cultivating the presence and resilience to teach these skills, especially within the context of leadership development, while standing firmly in science.
+
+I am an educator at heart, and obtain great joy from interacting with groups, sharing my knowledge and experience with organisations, corporates and schools in a way that is both accessible and inspiring.
+
+> I look forward to the chance to help you and your organisation reach ever-greater heights in the coming year.

@@ -2,7 +2,7 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Location } from "@reach/router";
 
-export default function FilteredCourses({ upcomingCourse, columns }) {
+export default function FilteredCourses({ upcomingCourse, columns, limit }) {
   return (
     <StaticQuery
       query={graphql`
@@ -14,7 +14,7 @@ export default function FilteredCourses({ upcomingCourse, columns }) {
             edges {
               node {
                 fields {
-                  uCourseMTCourses {
+                  uCourseLDCourses {
                     fields {
                       slug
                     }
@@ -23,7 +23,9 @@ export default function FilteredCourses({ upcomingCourse, columns }) {
                 html
                 id
                 frontmatter {
+                  serviceRelated
                   courseName
+                  subheading
                   dateStart
                   dateEnd
                   venue
@@ -59,13 +61,18 @@ export default function FilteredCourses({ upcomingCourse, columns }) {
                   );
                   // filter out expired courses
                   if (courseDate > today) {
+                    if (limit && limit > 0) {
+                      if (upcomingCourses.length === limit) {
+                        return upcomingCourses;
+                      }
+                    }
                     upcomingCourses.push(
                       <UpcomingCourse
                         key={id}
                         frontmatter={frontmatter}
                         html={html}
                         courseSlug={`${
-                          fields.uCourseMTCourses.fields.slug
+                          fields.uCourseLDCourses.fields.slug
                         }#start-content`}
                         siteUrl={location.origin}
                         columns={columns}

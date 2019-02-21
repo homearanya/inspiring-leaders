@@ -28,18 +28,24 @@ export class Menu extends Component {
   }
 
   handleHover = (depthLevel, index) => {
-    let updatedArray = this.state.showSubMenu.slice(0);
-    updatedArray.push(index);
-    this.setState({ showSubMenu: updatedArray });
+    this.setState(prevState => {
+      let updatedArray = prevState.showSubMenu.slice(0);
+      let subMenuArray = [];
+      subMenuArray[index] = true;
+      updatedArray.push(subMenuArray);
+      return { showSubMenu: updatedArray };
+    });
     if (depthLevel === 0) {
       this.props.toggleTransform();
     }
   };
 
   handleLeave = depthLevel => {
-    let updatedArray = this.state.showSubMenu.slice(0);
-    updatedArray = updatedArray.slice(0, depthLevel);
-    this.setState({ showSubMenu: updatedArray });
+    this.setState(prevState => {
+      let updatedArray = prevState.showSubMenu.slice(0);
+      updatedArray = updatedArray.slice(0, depthLevel);
+      return { showSubMenu: updatedArray };
+    });
     if (depthLevel === 0) {
       this.props.toggleTransform();
     }
@@ -47,13 +53,28 @@ export class Menu extends Component {
 
   handleClick = (e, depthLevel, index) => {
     e.stopPropagation();
-    let updatedArray = this.state.showSubMenu.slice(0);
-    if (updatedArray[depthLevel]) {
-      updatedArray = updatedArray.slice(0, depthLevel);
-    } else {
-      updatedArray.push(index);
-    }
-    this.setState({ showSubMenu: updatedArray });
+    this.setState(prevState => {
+      let updatedArray = prevState.showSubMenu.slice(0);
+      if (updatedArray[depthLevel]) {
+        if (updatedArray[depthLevel][index]) {
+          updatedArray = updatedArray.slice(0, depthLevel + 1);
+          updatedArray[depthLevel][index] = false;
+        } else {
+          updatedArray[depthLevel][index] = true;
+        }
+      } else {
+        let subMenuArray = [];
+        subMenuArray[index] = true;
+        updatedArray.push(subMenuArray);
+      }
+
+      //   && updatedArray[depthLevel][index]) {
+      //   updatedArray = updatedArray[depthLevel].splice(index, 1);
+      // } else {
+      //   if (updatedArray[depthLevel]) updatedArray[depthLevel].splice(index, 1);
+
+      return { showSubMenu: updatedArray };
+    });
   };
 
   hideSubMenu = e => {

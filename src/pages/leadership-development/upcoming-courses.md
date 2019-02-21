@@ -1,5 +1,5 @@
 ---
-templateKey: mindfulness-training-page
+templateKey: service-page
 title: Upcoming Courses
 excerpt: >-
   Are you interested in mindfulness training? Join me on one of my upcoming courses.

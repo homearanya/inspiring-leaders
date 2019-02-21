@@ -31,6 +31,7 @@ export default function SliderArea(props) {
               heading1={slide.heading1}
               heading2={slide.heading2}
               subheading={slide.subheading}
+              links={slide.links}
             />
           );
         })}

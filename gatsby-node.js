@@ -6,7 +6,7 @@ const { createFilePath } = require("gatsby-source-filesystem");
 let homeServicesTitles = [];
 let homeServicesIds = [];
 let servicesObject = new Object();
-let mindfulnessTrainingObject = new Object();
+let leadershipDevelopmentObject = new Object();
 let coursesObject = new Object();
 
 let homeNodeId;
@@ -125,19 +125,22 @@ exports.createPages = ({ actions, graphql, getNode }) => {
       });
     }
     // create node fields for upcoming services/mindulness training courses relation
-    for (let key in mindfulnessTrainingObject) {
-      if (mindfulnessTrainingObject.hasOwnProperty(key) && coursesObject[key]) {
+    for (let key in leadershipDevelopmentObject) {
+      if (
+        leadershipDevelopmentObject.hasOwnProperty(key) &&
+        coursesObject[key]
+      ) {
         if (coursesObject[key].length > 0) {
           createNodeField({
-            node: getNode(mindfulnessTrainingObject[key]),
-            name: `mtCoursesUCourses`,
+            node: getNode(leadershipDevelopmentObject[key]),
+            name: `ldCoursesUCourses`,
             value: coursesObject[key]
           });
           coursesObject[key].forEach(courseNodeId => {
             createNodeField({
               node: getNode(courseNodeId),
-              name: `uCourseMTCourses`,
-              value: mindfulnessTrainingObject[key]
+              name: `uCourseLDCourses`,
+              value: leadershipDevelopmentObject[key]
             });
           });
         }
@@ -162,35 +165,45 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node.frontmatter.templateKey.includes("home-page")
     ) {
       homeNodeId = node.id;
-      node.frontmatter.servicesArea.services.forEach(service =>
-        homeServicesTitles.push(service.service.trim().toLowerCase())
-      );
+      if (
+        node.frontmatter.ldArea &&
+        node.frontmatter.ldArea.services.length > 0
+      ) {
+        node.frontmatter.ldArea.services.forEach(service =>
+          homeServicesTitles.push(service.service.trim().toLowerCase())
+        );
+      }
+      if (
+        node.frontmatter.ewsArea &&
+        node.frontmatter.ewsArea.services.length > 0
+      ) {
+        node.frontmatter.ewsArea.services.forEach(service =>
+          homeServicesTitles.push(service.service.trim().toLowerCase())
+        );
+      }
     } else if (
       node.frontmatter.templateKey &&
       node.frontmatter.templateKey.includes("service-page")
     ) {
       servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
-      // collect nodes for upcoming courses/mindfulness training courses relation
-    } else if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("mindfulness-training-page")
-    ) {
-      servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
-      mindfulnessTrainingObject[node.frontmatter.title.trim().toLowerCase()] =
+      // collect nodes for upcoming courses/leadership development courses relation
+      leadershipDevelopmentObject[node.frontmatter.title.trim().toLowerCase()] =
         node.id;
     } else if (
       node.frontmatter.templateKey &&
       node.frontmatter.templateKey.includes("upcoming-courses")
     ) {
-      if (coursesObject[node.frontmatter.courseName.trim().toLowerCase()]) {
-        coursesObject[node.frontmatter.courseName.trim().toLowerCase()].push(
-          node.id
-        );
+      if (coursesObject[node.frontmatter.serviceRelated.trim().toLowerCase()]) {
+        coursesObject[
+          node.frontmatter.serviceRelated.trim().toLowerCase()
+        ].push(node.id);
       } else {
-        coursesObject[node.frontmatter.courseName.trim().toLowerCase()] = [];
-        coursesObject[node.frontmatter.courseName.trim().toLowerCase()].push(
-          node.id
-        );
+        coursesObject[
+          node.frontmatter.serviceRelated.trim().toLowerCase()
+        ] = [];
+        coursesObject[
+          node.frontmatter.serviceRelated.trim().toLowerCase()
+        ].push(node.id);
       }
     }
   }

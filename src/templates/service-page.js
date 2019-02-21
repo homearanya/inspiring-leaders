@@ -14,6 +14,8 @@ import Accordion from "../components/Accordion";
 import Tab from "../components/Tab";
 import TabHeading from "../components/TabHeading";
 import TabContent from "../components/TabContent";
+import UpcomingCourses from "../components/UpcomingCourses";
+import Topics from "../components/Topics";
 import SEO from "../components/SEO/SEO";
 
 const StyledLink = styled(Link)`
@@ -32,7 +34,6 @@ const StyledLink = styled(Link)`
 const StyledImg = styled(Img)`
   margin-bottom: 50px;
   @media (min-width: 992px) {
-    margin-top: 100px;
     margin-bottom: 0;
   }
 `;
@@ -43,6 +44,8 @@ const renderAst = new rehypeReact({
   components: {
     "dynamic-anchor": DynamicAnchor,
     "gatsby-link": StyledLink,
+    "upcoming-courses": UpcomingCourses,
+    "topics-container": Topics,
     "accordion-container": Accordion,
     "tab-container": Tab,
     "tab-heading": TabHeading,

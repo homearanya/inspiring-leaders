@@ -33,11 +33,11 @@ export default function Button(props) {
     <React.Fragment>
       {props.whereTo[0] === "#" ? (
         <ScrollTo to={props.whereTo.split("#")[1]} smooth={true} duration={300}>
-          <StyledButton>{props.text}</StyledButton>
+          <StyledButton className={props.className}>{props.text}</StyledButton>
         </ScrollTo>
       ) : (
         <Link to={props.whereTo}>
-          <StyledButton>{props.text}</StyledButton>
+          <StyledButton className={props.className}>{props.text}</StyledButton>
         </Link>
       )}
     </React.Fragment>

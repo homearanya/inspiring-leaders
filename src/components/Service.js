@@ -22,7 +22,7 @@ const ServiceText = styled.p`
 export default function Service(props) {
   const serviceSlug = props.service.fields.slug;
   return (
-    <div className="col-md-3 col-sm-6">
+    <div className="col-md-3 col-sm-4">
       <Link to={`${serviceSlug}#start-content`}>
         <div className="with_padding text-center teaser hover_shadow">
           <ServiceIcon>

@@ -12,6 +12,15 @@ const StyledHeading = styled.h2`
   font-size: 24px;
 `;
 
+const StyledSubHeading = styled.div`
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: none;
+    margin-bottom: 30px;
+  }
+`;
+
 const StyledDateVenue = styled.p`
   display: ${props => (props.venue ? "flexbox" : "block")};
 `;
@@ -37,6 +46,12 @@ export default function CourseHeader(props) {
       <StyledLink to={props.url}>
         <StyledHeading> {props.heading}</StyledHeading>
       </StyledLink>
+      {props.subheading && (
+        <StyledSubHeading
+          className="fontsize_18"
+          dangerouslySetInnerHTML={{ __html: props.subheading }}
+        />
+      )}
       <StyledDateVenue
         className="item-meta grey darklinks fontsize_16"
         venue={props.venue}

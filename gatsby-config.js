@@ -153,7 +153,7 @@ module.exports = {
   ],
   mapping: {
     "MarkdownRemark.fields.homeservices": `MarkdownRemark`,
-    "MarkdownRemark.fields.mtCoursesUCourses": `MarkdownRemark`,
-    "MarkdownRemark.fields.uCourseMTCourses": `MarkdownRemark`
+    "MarkdownRemark.fields.ldCoursesUCourses": `MarkdownRemark`,
+    "MarkdownRemark.fields.uCourseLDCourses": `MarkdownRemark`
   }
 };

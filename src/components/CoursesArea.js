@@ -22,7 +22,11 @@ export default function CoursessArea(props) {
           </div>
         </div>
         <div className="row mosaic-post">
-          <FilteredCourses upcomingCourse={UpcomingCourse} columns="col-md-4" />
+          <FilteredCourses
+            upcomingCourse={UpcomingCourse}
+            limit={3}
+            columns="col-md-4"
+          />
         </div>
       </div>
     </StyledSection>

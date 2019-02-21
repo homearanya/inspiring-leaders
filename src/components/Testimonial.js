@@ -1,14 +1,24 @@
 import React from "react";
+import styled from "styled-components";
+
+const TestimonialWrapper = styled.div`
+  blockquote {
+    font-size: 25px;
+    text-transform: none;
+  }
+`;
 
 export default function Testimonial(props) {
   return (
-    <div>
+    <TestimonialWrapper>
       <blockquote>
         {`“${props.quote}”`}
-        <div className="item-meta">
-          <h5>{props.author}</h5>
-        </div>
+        {props.author && (
+          <div className="item-meta">
+            <h5>{props.author}</h5>
+          </div>
+        )}
       </blockquote>
-    </div>
+    </TestimonialWrapper>
   );
 }
