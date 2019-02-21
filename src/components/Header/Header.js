@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Sticky from "react-sticky-el";
 
-import Logo from "../../../Logo";
+import Logo from "../Logo";
 import { Menu } from "../Menu";
 // import Social from "../Social";
 
