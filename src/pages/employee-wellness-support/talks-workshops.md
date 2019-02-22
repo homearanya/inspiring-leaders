@@ -5,15 +5,16 @@ intro: >-
   A broad range of inspiring talks and workshops are offered in order to enable the achievement of optimal health and wellbeing and superior job performance.
 excerpt: >-
   A broad range of inspiring talks and workshops are offered in order to enable the achievement of optimal health and wellbeing and superior job performance.
+iconClasses: "fas fa-users"
 thumbnailimage:
   alt: Personal Counselling
   image: /img/personal-counselling-icon.png
 bannerimage:
-  alt: Feeling, emotions, sesations...
-  image: /img/personal-counselling-banner.jpg
+  alt: Employee Wellness Support, Talks & Workshops
+  image: /img/employee-wellness-support-talks-workshops-banner.jpg
 bodyimage:
-  alt: Personal Counselling
-  image: /img/personal-counselling.jpg
+  alt: Employee Wellness Support, Talks & Workshops
+  image: /img/employee-wellness-support-talks-workshops.jpg
 topics:
   - topic: 1.	How to manage stress more effectively
     content:

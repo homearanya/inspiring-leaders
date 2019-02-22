@@ -8,8 +8,8 @@ dateStart: 2019-08-22T22:00:00.000Z
 dateEnd: 2019-08-23T22:00:00.000Z
 venue: ""
 thumbnailimage:
-  alt: Mindfulness-Based Stress Reduction Course
-  image: /img/mindfulness-training-stress-course-thumbnail.jpg
+  alt: Leadership Development Training Course
+  image: /img/leadership-development-training-programmes-course-1.jpg
 ---
 
 #### (2 days)

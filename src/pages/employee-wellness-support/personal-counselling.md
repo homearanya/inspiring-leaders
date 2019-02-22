@@ -5,15 +5,16 @@ intro: >-
   Individual counselling services are offered for individuals who require guidance and/or emotional support during difficult times.
 excerpt: >-
   Individual counselling services are offered for individuals who require guidance and/or emotional support during difficult times.
+iconClasses: "fas fa-heartbeat"
 thumbnailimage:
   alt: Personal Counselling
   image: /img/personal-counselling-icon.png
 bannerimage:
-  alt: Feeling, emotions, sesations...
-  image: /img/personal-counselling-banner.jpg
+  alt: Employee Wellness Support, Counselling for Individuals
+  image: /img/employee-wellness-support-personal-counselling-banner.jpg
 bodyimage:
-  alt: Personal Counselling
-  image: /img/personal-counselling.jpg
+  alt: Employee Wellness Support, Counselling for Individuals
+  image: /img/employee-wellness-support-personal-counselling.jpg
 # testimonialsArea:
 #   testimonials:
 #     - author: "Psychotherapy client, 2015"

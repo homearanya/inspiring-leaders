@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-scroll";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import Button from "./Button";
+// import Button from "./Button";
 
 // const StyledButton = styled(Button)`
 //   margin-bottom: 20px;
@@ -27,19 +27,20 @@ const LinksWrapper = styled.div`
   @media (min-width: 992px) {
     margin-bottom: 0px;
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     left: 0;
     right: 0;
   }
 `;
 
 const ItemContainer = styled.div`
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
+  border: 10px solid azure;
 `;
 
 const TextWrapper = styled.div`
-  background: rgb(0, 0, 0, 0.2);
+  background: rgb(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
   bottom: 0;

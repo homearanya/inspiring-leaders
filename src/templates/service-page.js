@@ -57,9 +57,17 @@ export default function({ data }) {
   // const ServiceContent = HTMLContent || Content;
   const { fields, frontmatter } = data.markdownRemark;
   //   Prepare breadcrumbs
+  let breadcrumbTitle = "Leadership Development";
+  let breadcrumbLink = "/#leadership-development";
+  if (fields.slug.includes("/employee-wellness-support/")) {
+    breadcrumbTitle = "Employee Wellness Support";
+    breadcrumbLink = "/#employee-wellness-support";
+  }
+
   const pages = [
     { title: "Home", href: "/" },
-    { title: "Services", href: "/#services" },
+    { title: "Services", href: null },
+    { title: breadcrumbTitle, href: breadcrumbLink },
     { title: frontmatter.title, href: null }
   ];
   // service images

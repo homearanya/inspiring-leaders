@@ -63,7 +63,7 @@ export default ({ data, location }) => {
       />
       {/* <FaqArea />
     <PricesArea /> */}
-        <AppointmentArea noTopPadding />
+      <AppointmentArea noTopPadding />
     </Layout>
   );
 };
@@ -80,6 +80,7 @@ export const homePageQuery = graphql`
           frontmatter {
             title
             intro
+            iconClasses
             thumbnailimage {
               image {
                 childImageSharp {

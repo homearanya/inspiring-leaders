@@ -5,15 +5,16 @@ intro: >-
   Training in Mindfulness helps employees manage stress more effectively, strengthen their focus, and improve performance and job satisfaction.
 excerpt: >-
   Training in Mindfulness helps employees manage stress more effectively, strengthen their focus, and improve performance and job satisfaction.
+iconClasses: "fas fa-spa"
 thumbnailimage:
   alt: Mindfulness Training
   image: /img/mindfulness-training-icon.png
 bannerimage:
-  alt: Mindfulness Training
-  image: /img/mindfulness-training-banner.jpg
+  alt: Employee Wellness Support, Mindfulness Training
+  image: /img/employee-wellness-support-mindfulness-training-banner.jpg
 bodyimage:
-  alt: Mindfulness Training
-  image: /img/mindfulness-training.jpg
+  alt: Employee Wellness Support, Mindfulness Training
+  image: /img/employee-wellness-support-mindfulness-training.jpg
 # testimonialsArea:
 #   testimonials:
 #     - author: "Psychotherapy client, 2015"

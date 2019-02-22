@@ -5,15 +5,16 @@ intro: >-
   Short training programmes are offered to leaders and those moving into leadership positions, designed to optimise performance, strengthen leadership skills and increase well-being.
 excerpt: >-
   Short training programmes are offered to leaders and those moving into leadership positions, designed to optimise performance, strengthen leadership skills and increase well-being.
+iconClasses: "fas fa-book-reader"
 thumbnailimage:
   alt: Personal Counselling
   image: /img/personal-counselling-icon.png
 bannerimage:
-  alt: Feeling, emotions, sesations...
-  image: /img/personal-counselling-banner.jpg
+  alt: Leadership Development Training Programmes
+  image: /img/leadership-development-training-programmes-banner.jpg
 bodyimage:
-  alt: Personal Counselling
-  image: /img/personal-counselling.jpg
+  alt: Leadership Development Training Programmes
+  image: /img/leadership-development-training-programmes.jpg
 # testimonialsArea:
 #   testimonials:
 #     - author: "Psychotherapy client, 2015"

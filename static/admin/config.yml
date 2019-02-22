@@ -271,6 +271,10 @@ collections:
                   hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
                 }
           - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Icon Classes"                    
+            name: iconClasses
+            widget: string
+            hint: FontAwesome classes
           - label: "Thumbnail Image"
             name: thumbnailimage
             widget: object

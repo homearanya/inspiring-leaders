@@ -35,7 +35,7 @@ export default function ServicesArea(props) {
     ""
   );
   return (
-    <section id="services" className={`ls${sectionPadding}`}>
+    <section className={`ls${sectionPadding}`}>
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">

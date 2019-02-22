@@ -5,15 +5,16 @@ intro: >-
   Short seminars are offered to those in leadership positions, and are designed to strengthen leadership skills and increase well-being.
 excerpt: >-
   Short seminars are offered to those in leadership positions, and are designed to strengthen leadership skills and increase well-being.
+iconClasses: "fas fa-chalkboard-teacher"
 thumbnailimage:
   alt: Personal Counselling
   image: /img/personal-counselling-icon.png
 bannerimage:
-  alt: Feeling, emotions, sesations...
-  image: /img/personal-counselling-banner.jpg
+  alt: Leadership Development Seminars
+  image: /img/leadership-development-seminars-banner.jpg
 bodyimage:
-  alt: Personal Counselling
-  image: /img/personal-counselling.jpg
+  alt: Leadership Development Seminars
+  image: /img/leadership-development-seminars.jpg
 # testimonialsArea:
 #   testimonials:
 #     - author: "Psychotherapy client, 2015"

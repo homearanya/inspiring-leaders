@@ -5,23 +5,23 @@ excerpt: >-
   offers personal counselling, career guidance, psychological assessments and
   mindfulness training.
 slider:
-  - heading1: Alistair
-    heading2: Mork-Chadwick
+  - heading1: Inspiring Leaders
+    heading2: Alistair Mork-Chadwick
     image:
-      alt: Alistair Mork-Chadwick during a counselling session
-      image: /img/alistair-mork-chadwick-at-work.jpg
+      alt: Leadership Development
+      image: /img/leadership-development.jpg
     subheading: Counselling Psychologist
     links:
       - name: Leadership Development
         link: "#leadership-development"
         image:
-          alt: Alistair Mork-Chadwick during a counselling session
-          image: /img/mindfulness-time.jpg
+          alt: Leadership Development to advance your career
+          image: /img/leadership-development-slider-icon.jpg
       - name: Employee Wellness Support
         link: "#employee-wellness-support"
         image:
-          alt: Alistair Mork-Chadwick during a counselling session
-          image: /img/mindfulness-training.jpg
+          alt: Employee Wellness Support
+          image: /img/employee-wellness-support-slider-icon.jpg
 ldArea:
   blurb:
     paragraphs:
