@@ -20,7 +20,7 @@ import styled from "styled-components";
 //   }
 // `;
 
-const LinksWrapper = styled.div`
+const LinksWrapper = styled.div `
   overflow: auto;
   margin-top: -40px;
   margin-bottom: 40px;
@@ -33,13 +33,13 @@ const LinksWrapper = styled.div`
   }
 `;
 
-const ItemContainer = styled.div`
+const ItemContainer = styled.div `
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   border: 10px solid azure;
 `;
 
-const TextWrapper = styled.div`
+const TextWrapper = styled.div `
   background: rgb(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
@@ -65,8 +65,8 @@ const TextWrapper = styled.div`
     vertical-align: middle;
   }
 `;
-const TextContainer = styled.div`
-  padding: 0 5px;
+const TextContainer = styled.div `
+&&& {  padding: 0 5px;
   display: inline-block;
   vertical-align: middle;
 
@@ -85,60 +85,65 @@ const TextContainer = styled.div`
     h3 {
       font-size: 30px;
     }
-  }
+  }}
 `;
 
-const LinkWrapper = styled.div`
+const LinkWrapper = styled.div `
   z-index: 6;
 `;
 
-const StyleLink = styled(Link)`
+const StyleLink = styled(Link)
+`
   cursor: pointer;
 `;
 
 export default function SlideLinks(props) {
-  return (
-    <LinksWrapper>
-      {props.links && (
-        <React.Fragment>
-          {props.links.map((link, index) => {
-            let offset = " col-md-offset-1 col-sm-offset-0 col-xs-offset-0";
-            if (index > 0) {
-              offset = " col-md-offset-2 col-sm-offset-2 col-xs-offset-0";
-            }
-            return (
-              <div
-                className={`col-md-4 col-sm-5 col-xs-6${offset} isotope-item`}
-              >
-                <ItemContainer className="item-media entry-thumbnail">
-                  <Img
-                    fluid={link.image.image.childImageSharp.fluid}
-                    alt={link.image.alt}
-                  />
-                  <TextWrapper>
-                    <TextContainer>
-                      <h3>{link.name}</h3>
-                    </TextContainer>
-                  </TextWrapper>
-                  <LinkWrapper className="media-links">
-                    <StyleLink
-                      className="abs-link"
-                      to={link.link.split("#")[1]}
-                      smooth={true}
-                      duration={300}
-                    />
-                  </LinkWrapper>
-                </ItemContainer>
-                {/* <StyledButton
-                      key={index}
-                      whereTo={link.link}
-                      text={link.name}
-                    /> */}
-              </div>
-            );
-          })}
-        </React.Fragment>
-      )}
-    </LinksWrapper>
-  );
+    return ( <
+        LinksWrapper > {
+            props.links && ( <
+                React.Fragment > {
+                    props.links.map((link, index) => {
+                        let offset = " col-md-offset-1 col-sm-offset-0 col-xs-offset-0";
+                        if (index > 0) {
+                            offset = " col-md-offset-2 col-sm-offset-2 col-xs-offset-0";
+                        }
+                        return ( <
+                            div className = { `col-md-4 col-sm-5 col-xs-6${offset} isotope-item` } >
+                            <
+                            ItemContainer className = "item-media entry-thumbnail" >
+                            <
+                            Img fluid = { link.image.image.childImageSharp.fluid }
+                            alt = { link.image.alt }
+                            /> <
+                            TextWrapper >
+                            <
+                            TextContainer >
+                            <
+                            h3 > { link.name } < /h3> <
+                            /TextContainer> <
+                            /TextWrapper> <
+                            LinkWrapper className = "media-links" >
+                            <
+                            StyleLink className = "abs-link"
+                            to = { link.link.split("#")[1] }
+                            smooth = { true }
+                            duration = { 300 }
+                            /> <
+                            /LinkWrapper> <
+                            /ItemContainer> {
+                                /* <StyledButton
+                                                      key={index}
+                                                      whereTo={link.link}
+                                                      text={link.name}
+                                                    /> */
+                            } <
+                            /div>
+                        );
+                    })
+                } <
+                /React.Fragment>
+            )
+        } <
+        /LinksWrapper>
+    );
 }
