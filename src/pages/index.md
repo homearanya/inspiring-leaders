@@ -45,27 +45,15 @@ ewsArea:
     - service: Talks & Workshops
     - service: Counselling for Individuals
     - service: Mindfulness Training
-# aboutMeArea:
-#   blurb:
-#     paragraphs:
-#       - paragraph: >-
-#           I am a psychologist and training facilitator. In my work with organisations I draw on the latest research findings, specifically those which deal with supporting optimal levels of work engagement, cultivating a mindful approach to work, and building emotional intelligence.
-#       - paragraph: >-
-#           “All of my roles involve helping individuals and groups to implement lasting, positive change.”
-#       - paragraph: >-
-#           I have an extensive background and personal commitment to embodying mindfulness and emotional intelligence skills. I have spent years cultivating the presence and resilience to teach these skills, especially within the context of leadership development, while standing firmly in science.
-#       - paragraph: >-
-#           I am an educator at heart, and obtain great joy from interacting with groups, sharing my knowledge and experience with organisations, corporates and schools in a way that is both accessible and inspiring.
-#       - paragraph: >-
-#           I look forward to the chance to help you and your organisation reach ever-greater heights in the coming year.
-#   heading1: WHO AM I?
-#   heading2: " "
-#   personPicture:
-#     alt: Alistair Mork-Chadwick
-#     image: /img/alistair-mork-chadwick.png
-#   backgroundImage:
-#     alt: Square Patterns
-#     image: /img/texture.png
+aboutMeArea:
+  blurb:
+    paragraphs:
+      - paragraph: >-
+          "Each person is unique. Our ability to manage stress, our dietary and movement habits, and our relationships, amongst other factors, all affect our mental health, including our emotional and intellectual functioning. In other words, there are multiple factors that play a role in determining whether an individual is able to sustain high levels of work engagement, happiness and productivity in the workplace."
+  heading: Alistair Mork-Chadwick
+  personPicture:
+    alt: Alistair Mork-Chadwick
+    image: /img/alistair-mork-chadwick-2.jpg
 coursesArea:
   blurb: ""
   heading: Leaderships Development - Upcoming Courses

@@ -9,6 +9,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 // import Content, { HTMLContent } from "../components/Content";
 import TestimonialsArea from "../components/TestimonialsArea";
 import AppointmentArea from "../components/AppointmentArea";
+import Button from "../components/Button";
 import DynamicAnchor from "../components/DynamicAnchor";
 import Accordion from "../components/Accordion";
 import Tab from "../components/Tab";
@@ -16,6 +17,7 @@ import TabHeading from "../components/TabHeading";
 import TabContent from "../components/TabContent";
 import UpcomingCourses from "../components/UpcomingCourses";
 import Topics from "../components/Topics";
+import FAQS from "../components/FAQS";
 import SEO from "../components/SEO/SEO";
 
 const StyledLink = styled(Link)`
@@ -37,15 +39,20 @@ const StyledImg = styled(Img)`
     margin-bottom: 0;
   }
 `;
-
+const ButtonWrapper = styled.div`
+  text-align: center;
+`;
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
+    "button-wrapper": ButtonWrapper,
+    "button-container": Button,
     "dynamic-anchor": DynamicAnchor,
     "gatsby-link": StyledLink,
     "upcoming-courses": UpcomingCourses,
     "topics-container": Topics,
+    "faqs-container": FAQS,
     "accordion-container": Accordion,
     "tab-container": Tab,
     "tab-heading": TabHeading,
@@ -105,7 +112,7 @@ export default function({ data }) {
         pageTitle={frontmatter.title}
         pages={JSON.parse(JSON.stringify(pages))}
       />
-      <section className="ls section_padding_top_130 section_padding_bottom_130">
+      <section className="ls section_padding_top_100 section_padding_bottom_75">
         <div className="container">
           <div className="row">
             <div className="col-lg-4 col-lg-push-8 col-sm-5 col-sm-push-7">

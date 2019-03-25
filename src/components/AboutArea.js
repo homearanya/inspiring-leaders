@@ -41,7 +41,7 @@ export default function AboutArea(props) {
               </p>
             ))}
             <br />
-            <Button whereTo="/about/" text="More About Me" />
+            <Button whereto="/about/" text="More About Me" />
           </div>
           <div className="col-md-6 col-md-pull-6 text-center bottommargin_0">
             <Img

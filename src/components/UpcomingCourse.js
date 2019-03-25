@@ -68,7 +68,7 @@ export default function UpcomingCourse({
             />
             <StyledBody dangerouslySetInnerHTML={{ __html: html }} />
             <br />
-            <Button whereTo={courseSlug} text="Course Info" />
+            <Button whereto={courseSlug} text="Course Info" />
           </div>
           <SocialFooter url={courseUrl} title={courseInfo.courseName} />
         </StyledContet>

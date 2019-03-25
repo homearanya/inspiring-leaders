@@ -27,7 +27,7 @@ export default function() {
                 </p>
                 <h2>Sorry, page not found!</h2>
                 <p>
-                  <Button whereTo="/" text="Back to Home" />
+                  <Button whereto="/" text="Back to Home" />
                 </p>
               </div>
             </div>

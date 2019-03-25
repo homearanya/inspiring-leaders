@@ -5,9 +5,10 @@ import Layout from "../components/Layout";
 import SliderArea from "../components/SliderArea";
 import ServicesArea from "../components/ServicesArea";
 // import AboutArea from "../components/AboutArea";
+import AboutArea2 from "../components/AboutArea2";
 import CoursesArea from "../components/CoursesArea";
 import ArticlesArea from "../components/ArticlesArea";
-import TestimonialsArea from "../components/TestimonialsArea";
+// import TestimonialsArea from "../components/TestimonialsArea";
 // import FaqArea from "../components/FaqArea";
 // import PricesArea from "../components/PricesArea";
 import AppointmentArea from "../components/AppointmentArea";
@@ -48,11 +49,12 @@ export default ({ data, location }) => {
         servicesArea={frontmatter.ewsArea}
         noPadding
       />
+      <AboutArea2 aboutMeArea={frontmatter.aboutMeArea} />
       {/* <AboutArea aboutMeArea={frontmatter.aboutMeArea} /> */}
-      {frontmatter.testimonialsArea &&
+      {/* {frontmatter.testimonialsArea &&
         frontmatter.testimonialsArea.testimonials.length > 0 && (
           <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
-        )}
+        )} */}
       <CoursesArea
         coursesArea={frontmatter.coursesArea}
         siteUrl={location.origin}
@@ -147,6 +149,24 @@ export const homePageQuery = graphql`
             service
           }
         }
+        aboutMeArea {
+          heading
+          blurb {
+            paragraphs {
+              paragraph
+            }
+          }
+          personPicture {
+            alt
+            image {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
         coursesArea {
           heading
           blurb
@@ -154,12 +174,6 @@ export const homePageQuery = graphql`
         articlesArea {
           heading
           blurb
-        }
-        testimonialsArea {
-          testimonials {
-            quote
-            author
-          }
         }
       }
     }

@@ -6,7 +6,7 @@ import { Link as ScrollTo } from "react-scroll";
 const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
   display: inline-block;
   border: none;
-  padding: 17px 30px;
+  padding: 12px 30px 17px 30px;
   margin: 0;
   text-decoration: none;
   background: #4bb0a9;
@@ -31,12 +31,12 @@ const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
 export default function Button(props) {
   return (
     <React.Fragment>
-      {props.whereTo[0] === "#" ? (
-        <ScrollTo to={props.whereTo.split("#")[1]} smooth={true} duration={300}>
+      {props.whereto[0] === "#" ? (
+        <ScrollTo to={props.whereto.split("#")[1]} smooth={true} duration={300}>
           <StyledButton className={props.className}>{props.text}</StyledButton>
         </ScrollTo>
       ) : (
-        <Link to={props.whereTo}>
+        <Link to={props.whereto}>
           <StyledButton className={props.className}>{props.text}</StyledButton>
         </Link>
       )}

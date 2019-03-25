@@ -8,6 +8,7 @@ import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Content, { HTMLContent } from "../components/Content";
 import SEO from "../components/SEO/SEO";
+import DynammicAnchor from "../components/DynamicAnchor";
 
 const StyledImg = styled(Img)`
   margin-bottom: 50px;
@@ -78,6 +79,7 @@ export default function({ data }) {
               </YouTubeWrapper> */}
             </div>
             <div className="col-md-6 col-md-pull-6">
+              <DynammicAnchor id="start-about" />
               <h2 className="section_header">Who Am I?</h2>
               <hr className="divider_30_1" />
               <AboutContent content={data.markdownRemark.html} />
@@ -111,7 +113,7 @@ export const aboutPageQuery = graphql`
         bodyimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 400) {
+              fluid(maxWidth: 600) {
                 ...GatsbyImageSharpFluid
               }
             }

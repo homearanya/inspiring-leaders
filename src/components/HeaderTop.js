@@ -17,7 +17,7 @@ export default function HeaderTop(props) {
 
           {props.appointmentButton ? (
             <div className="col-md-3 text-center text-md-right bottommargin_0">
-              <Button whereTo="#appointment" text="Contact Me" />
+              <Button whereto="#appointment" text="Contact Me" />
             </div>
           ) : null}
         </div>

@@ -43,7 +43,7 @@ export default function ArticlesArea(props) {
       render={data => {
         const { edges: articles } = data.allMarkdownRemark;
         return (
-          <section className="ls section_padding_top_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30">
+          <section className="ls section_padding_top_100 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30">
             <div className="container">
               <div className="row">
                 <div className="col-sm-12 text-center">

@@ -7,10 +7,10 @@ export default function Topics(props) {
   return (
     <StaticQuery
       query={graphql`
-        query TopicsQuery {
+        query FAQSQuery {
           markdownRemark(
             fields: {
-              slug: { eq: "/employee-wellness-support/talks-workshops/" }
+              slug: { eq: "/employee-wellness-support/mindfulness-training/" }
             }
           ) {
             frontmatter {

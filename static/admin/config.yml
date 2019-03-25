@@ -135,59 +135,37 @@ collections:
                     valueField: "title"
                     displayFields: ["title"]
                     hint: Very important!!!! It has to be exactly the same name as of the service on the services colection
-          # - label: "About Me Area"
-          #   name: aboutMeArea
-          #   widget: object
-          #   fields:
-          #     - { label: Heading Line 1, name: heading1, widget: string }
-          #     - {
-          #         label: Heading Line 2,
-          #         name: heading2,
-          #         widget: string,
-          #         required: false,
-          #       }
-          #     - label: Blurb
-          #       name: blurb
-          #       widget: object
-          #       fields:
-          #         - label: Paragraphs
-          #           label_singular: "Paragraph"
-          #           name: paragraphs
-          #           widget: list
-          #           fields:
-          #             - { label: Paragraph, name: paragraph, widget: text }
-              # - label: "Person Picture"
-              #   name: personPicture
-              #   widget: object
-              #   fields:
-              #     - {
-              #         label: Image,
-              #         name: image,
-              #         widget: image,
-              #         hint: "size 492 x 699",
-              #       }
-              #     - {
-              #         label: Title,
-              #         name: alt,
-              #         widget: text,
-              #         hint: "Please inform. Important for SEO",
-              #       }
-              # - label: "Background Image"
-              #   name: backgroundImage
-              #   widget: object
-              #   fields:
-              #     - {
-              #         label: Image,
-              #         name: image,
-              #         widget: image,
-              #         hint: "size 1920 x 890",
-              #       }
-              #     - {
-              #         label: Title,
-              #         name: alt,
-              #         widget: text,
-              #         hint: "Please inform. Important for SEO",
-              #       }
+          - label: "About Me Area"
+            name: aboutMeArea
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Blurb
+                name: blurb
+                widget: object
+                fields:
+                  - label: Paragraphs
+                    label_singular: "Paragraph"
+                    name: paragraphs
+                    widget: list
+                    fields:
+                      - { label: Paragraph, name: paragraph, widget: text }
+              - label: "Person Picture"
+                name: personPicture
+                widget: object
+                fields:
+                  - {
+                      label: Image,
+                      name: image,
+                      widget: image,
+                      hint: "size 492 x 699",
+                    }
+                  - {
+                      label: Title,
+                      name: alt,
+                      widget: text,
+                      hint: "Please inform. Important for SEO",
+                    }
           - label: "Courses Area"
             name: coursesArea
             widget: object
@@ -200,17 +178,17 @@ collections:
             fields:
               - { label: Heading, name: heading, widget: string }
               - { label: Blurb, name: blurb, widget: text }
-          - label: "Testimonials Area"
-            name: testimonialsArea
-            widget: object
-            fields:
-              - label: "Testimonials"
-                label_singular: "Testimonial"
-                name: testimonials
-                widget: list
-                fields:
-                  - { label: Quote, name: quote, widget: text }
-                  - { label: Author, name: author, widget: string }
+          # - label: "Testimonials Area"
+          #   name: testimonialsArea
+          #   widget: object
+          #   fields:
+          #     - label: "Testimonials"
+          #       label_singular: "Testimonial"
+          #       name: testimonials
+          #       widget: list
+          #       fields:
+          #         - { label: Quote, name: quote, widget: text }
+          #         - { label: Author, name: author, widget: string }
 
       - file: "src/pages/about.md"
         label: "About Page"
@@ -602,6 +580,22 @@ collections:
                   widget: text,
                   hint: "Please inform. Important for SEO",
                 }
+          - label: "FAQS"
+            label_singular: "FAQ"
+            name: topics
+            widget: list
+            fields:
+              - { label: Question, name: topic, widget: text }
+              - label: Answer
+                name: content
+                widget: object
+                fields:
+                  - label: Paragraphs
+                    label_singular: "Paragraph"
+                    name: paragraphs
+                    widget: list
+                    fields:
+                      - { label: Paragraph, name: paragraph, widget: text }
 
       - file: "src/pages/articles.md"
         label: "Articles Page"
