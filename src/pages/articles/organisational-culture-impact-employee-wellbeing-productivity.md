@@ -9,7 +9,9 @@ excerpt: >-
 thumbnailimage:
   alt: Employees enjoying a day at work
   image: /img/work-culture.jpg
-bannerimage: {}
+bannerimage:
+  alt: Work meeting
+  image: /img/work-culture-banner.jpg
 bodyimage:
   alt: Employees enjoying a day at work
   image: /img/work-culture.jpg

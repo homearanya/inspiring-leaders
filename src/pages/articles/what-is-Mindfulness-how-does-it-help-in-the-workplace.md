@@ -10,7 +10,9 @@ tags: []
 thumbnailimage:
   alt: A moment of mindfulness at work
   image: /img/mindfulness-at-work.jpg
-bannerimage: {}
+bannerimage:
+  alt: A beautiful landscape to contemplate
+  image: /img/mindfulness-at-work-banner.jpg
 bodyimage:
   alt: A moment of mindfulness at work
   image: /img/mindfulness-at-work.jpg
