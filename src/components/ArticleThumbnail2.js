@@ -56,8 +56,12 @@ export default function ArticleThumbnail2(props) {
 
           <p className="bottommargin_40 fontsize_18">
             {props.article.frontmatter.intro
-              ? props.article.frontmatter.intro.substring(0, 250) + "..."
-              : props.article.excerpt}
+              ? props.article.frontmatter.intro > 250
+                ? props.article.frontmatter.intro.substring(0, 250) + "..."
+                : props.article.frontmatter.intro
+              : props.article.excerpt > 250
+              ? props.article.frontmatter.excerpt.substring(0, 250) + "..."
+              : props.article.frontmatter.excerpt}
           </p>
 
           <Button

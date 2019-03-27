@@ -14,7 +14,7 @@ export default function({ location, data }) {
     { title: "Articles", href: null }
   ];
   const pageMeta = {
-    title: `About Me · Counselling Psychologist in Howick`,
+    title: `Articles · Counselling Psychologist in Howick`,
     description:
       frontmatter.excerpt ||
       frontmatter.blurb ||

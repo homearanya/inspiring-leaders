@@ -1,7 +1,7 @@
 ---
 templateKey: article-page
 title: What Is Mindfulness, And How Does It Help In The Workplace?
-date: 2019-01-08T08:21:55.686Z
+date: 2019-03-08T08:21:55.686Z
 intro: >-
   Mindfulness is often referred to as meditation, but it is perhaps more useful to view it as: a “state of mind” that allows one to focus on whatever needs to be the focus of attention in the present moment.
 excerpt: >-
