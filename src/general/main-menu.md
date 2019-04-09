@@ -13,7 +13,7 @@ menuItems:
           subMenu:
             subMenuItems:
               - link: /leadership-development/training-programmes/
-                name: Training Programes
+                name: Training Programmes
               - link: /leadership-development/seminars/
                 name: Seminars
               - link: /leadership-development/upcoming-courses/

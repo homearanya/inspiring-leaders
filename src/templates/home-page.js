@@ -4,13 +4,10 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SliderArea from "../components/SliderArea";
 import ServicesArea from "../components/ServicesArea";
-// import AboutArea from "../components/AboutArea";
 import AboutArea2 from "../components/AboutArea2";
+import TestimonialsArea from "../components/TestimonialsArea";
 import CoursesArea from "../components/CoursesArea";
 import ArticlesArea from "../components/ArticlesArea";
-// import TestimonialsArea from "../components/TestimonialsArea";
-// import FaqArea from "../components/FaqArea";
-// import PricesArea from "../components/PricesArea";
 import AppointmentArea from "../components/AppointmentArea";
 import SEO from "../components/SEO/SEO";
 
@@ -18,13 +15,8 @@ export default ({ data, location }) => {
   //   Prepare breadcrumbs
   const pages = [{ title: "Home", href: null }];
   const { fields, frontmatter } = data.homePageQuery;
-  const { homeservices } = data.homePageQuery.fields;
-  const servicesObject = homeservices.reduce((obj, service) => {
-    obj[service.frontmatter.title.trim().toLowerCase()] = service;
-    return obj;
-  }, {});
   const pageMeta = {
-    title: `Counselling Psychologist in Howick`,
+    title: `Leadership Development & Employee Wellness Support Services`,
     description:
       frontmatter.excerpt ||
       "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
@@ -37,24 +29,26 @@ export default ({ data, location }) => {
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
       />
 
-      <SliderArea slider={frontmatter.slider} />
+      <SliderArea
+        slider={frontmatter.slider}
+        sliderLinks={frontmatter.sliderLinks}
+      />
+
       <ServicesArea
         id="leadership-development"
-        servicesObject={servicesObject}
         servicesArea={frontmatter.ldArea}
       />
       <ServicesArea
         id="employee-wellness-support"
-        servicesObject={servicesObject}
         servicesArea={frontmatter.ewsArea}
         noPadding
       />
       <AboutArea2 aboutMeArea={frontmatter.aboutMeArea} />
       {/* <AboutArea aboutMeArea={frontmatter.aboutMeArea} /> */}
-      {/* {frontmatter.testimonialsArea &&
+      {frontmatter.testimonialsArea &&
         frontmatter.testimonialsArea.testimonials.length > 0 && (
           <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
-        )} */}
+        )}
       <CoursesArea
         coursesArea={frontmatter.coursesArea}
         siteUrl={location.origin}
@@ -75,26 +69,6 @@ export const homePageQuery = graphql`
     homePageQuery: markdownRemark(id: { eq: $id }) {
       fields {
         slug
-        homeservices {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            intro
-            iconClasses
-            thumbnailimage {
-              image {
-                childImageSharp {
-                  fixed(width: 80, height: 90) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-              alt
-            }
-          }
-        }
       }
       frontmatter {
         excerpt
@@ -112,16 +86,16 @@ export const homePageQuery = graphql`
               }
             }
           }
-          links {
-            name
-            link
+        }
+        sliderLinks {
+          name
+          link
+          image {
+            alt
             image {
-              alt
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 300, maxHeight: 150) {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
+              childImageSharp {
+                fluid(maxWidth: 500, maxHeight: 250) {
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }
@@ -135,7 +109,27 @@ export const homePageQuery = graphql`
             }
           }
           services {
-            service
+            service {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                intro
+                iconClasses
+                thumbnailimage {
+                  image {
+                    childImageSharp {
+                      fixed(width: 80, height: 90) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                  alt
+                }
+              }
+            }
           }
         }
         ewsArea {
@@ -146,7 +140,27 @@ export const homePageQuery = graphql`
             }
           }
           services {
-            service
+            service {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                intro
+                iconClasses
+                thumbnailimage {
+                  image {
+                    childImageSharp {
+                      fixed(width: 80, height: 90) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                  alt
+                }
+              }
+            }
           }
         }
         aboutMeArea {
@@ -165,6 +179,12 @@ export const homePageQuery = graphql`
                 }
               }
             }
+          }
+        }
+        testimonialsArea {
+          testimonials {
+            quote
+            author
           }
         }
         coursesArea {

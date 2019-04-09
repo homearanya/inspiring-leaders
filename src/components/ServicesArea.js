@@ -50,14 +50,7 @@ export default function ServicesArea(props) {
         </div>
         <ServicesWrapper className="row columns_padding_0 columns_margin_0 fontsize_16">
           {props.servicesArea.services.map((service, index) => {
-            return (
-              <Service
-                key={index}
-                service={
-                  props.servicesObject[service.service.trim().toLowerCase()]
-                }
-              />
-            );
+            return <Service key={index} service={service.service} />;
           })}
         </ServicesWrapper>
       </div>

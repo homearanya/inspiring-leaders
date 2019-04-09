@@ -2,23 +2,6 @@ import React from "react";
 import { Link } from "react-scroll";
 import Img from "gatsby-image";
 import styled from "styled-components";
-// import Button from "./Button";
-
-// const StyledButton = styled(Button)`
-//   margin-bottom: 20px;
-//   @media (min-width: 992px) {
-//     margin-bottom: 0px;
-//     font-size: 25px;
-//     opacity: 0.9;
-//     padding: 20px;
-//   }
-//   @media (min-width: 1200px) {
-//     margin-bottom: 0px;
-//     font-size: 30px;
-//     opacity: 0.9;
-//     padding: 30px;
-//   }
-// `;
 
 const LinksWrapper = styled.div`
   overflow: auto;
@@ -49,14 +32,7 @@ const TextWrapper = styled.div`
   height: 100%;
   font-size: 0;
   z-index: 5;
-  padding: 10px 0;
 
-  @media (min-width: 768px) {
-    padding: 20px 0;
-  }
-  @media (min-width: 992px) {
-    padding: 50px 0;
-  }
   :before {
     content: "";
     display: inline-block;
@@ -67,7 +43,7 @@ const TextWrapper = styled.div`
 `;
 const TextContainer = styled.div`
   &&& {
-    padding: 0 5px;
+    padding: 0 2px;
     display: inline-block;
     vertical-align: middle;
 
@@ -75,10 +51,16 @@ const TextContainer = styled.div`
       font-size: 13px;
     }
 
+    @media (min-width: 380px) {
+      padding: 0 10px;
+      h3 {
+        font-size: 16px;
+      }
+    }
     @media (min-width: 420px) {
       padding: 0 10px;
       h3 {
-        font-size: 20px;
+        font-size: 19px;
       }
     }
     @media (min-width: 992px) {
@@ -101,9 +83,9 @@ const StyleLink = styled(Link)`
 export default function SlideLinks(props) {
   return (
     <LinksWrapper>
-      {props.links && (
+      {props.sliderLinks && (
         <React.Fragment>
-          {props.links.map((link, index) => {
+          {props.sliderLinks.map((link, index) => {
             let offset = " col-md-offset-1 col-sm-offset-0 col-xs-offset-0";
             if (index > 0) {
               offset = " col-md-offset-2 col-sm-offset-2 col-xs-offset-0";
@@ -132,11 +114,6 @@ export default function SlideLinks(props) {
                     />
                   </LinkWrapper>
                 </ItemContainer>
-                {/* <StyledButton
-                  key={index}
-                  whereto={link.link}
-                  text={link.name}
-                /> */}
               </div>
             );
           })}

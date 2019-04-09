@@ -1,36 +1,51 @@
-var netlifyCmsPaths = {
-  resolve: `gatsby-plugin-netlify-cms-paths`,
-  options: {
-    cmsConfig: `/static/admin/config.yml`
-  }
-};
-
 module.exports = {
   siteMetadata: {
-    title: "Alistair Mork-Chadwick",
-    defaultTitle: "Alistair Mork-Chadwick · Counselling Psychologist",
-    description: `Alistair Mork-Chadwick is a Counselling psychologist based in Howick. 
-      He offers personal counselling, career guidance, 
-      psychological assessments and mindfulness training.`,
-    canonicalUrl: "https://www.alistairmork-chadwick.co.za",
-    image:
-      "https://www.alistairmork-chadwick.co.za/img/alistair-mork-chadwick.png",
+    title: "Inspiring Leaders",
+    defaultTitle: "Inspiring Leaders",
+    description: `Inspiring Leaders offers leadership development and employee wellness 
+    support to organizations, including training programmes, seminars, talks & workshops, 
+    counselling for individuals and mindfulness training.`,
+    canonicalUrl: "https://www.inspiring-leaders.co.za",
+    image: "https://www.inspiring-leaders.co.za/img/logo.png",
     author: {
       name: "Alistair Mork-Chadwick",
       minibio: `
-            <strong>Alistair Mork-Chadwick</strong> is a Counselling psychologist based in Howick. 
-            He offers personal counselling, career guidance, 
-            psychological assessments and mindfulness training.
+            <strong>Alistair Mork-Chadwick</strong> is a Counselling psychologist. 
+            With organisations he draws on the latest research findings, specifically 
+            those which deal with supporting optimal levels of work engagement, 
+            cultivating a mindful approach to work, and building emotional intelligence.
           `
     },
     organization: {
-      name: "Alistair Mork-Chadwick · Counselling Psychologist",
-      url: "https://www.alistairmork-chadwick.co.za",
-      logo: "https://www.alistairmork-chadwick.co.za/img/logo.png"
+      name: "Inspiring Leaders",
+      url: "https://www.inspiring-leaders.co.za",
+      logo: "https://www.inspiring-leaders.co.za/img/logo.png"
     },
-    siteUrl: "https://www.alistairmork-chadwick.co.za" // for gatsby plugin sitemap
+    siteUrl: "https://www.inspiring-leaders.co.za" // for gatsby plugin sitemap
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.inspiring-leaders.co.za",
+        sitemap: "https://www.inspiring-leaders.co.za/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: "GTM-5T9QCD4",
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false
+
+        // Specify optional GTM environment details.
+        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
+        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
+      }
+    },
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
@@ -76,8 +91,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Alistair Mork-Chadwick · Counselling Psychologist",
-        short_name: "alistair",
+        name: "Inspiring Leaders",
+        short_name: "inspiring",
         start_url: "/",
         background_color: "#6b37bf",
         theme_color: "#6b37bf",
@@ -94,8 +109,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages"
+        path: `${__dirname}/static/img`,
+        name: "uploads"
       }
     },
     {
@@ -108,8 +123,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/static/img`,
-        name: "staticimages"
+        path: `${__dirname}/src/pages`,
+        name: "pages"
       }
     },
     {
@@ -119,20 +134,18 @@ module.exports = {
         path: `${__dirname}/src/assets/img/`
       }
     },
-    netlifyCmsPaths, // Including in your Gatsby plugins will transform any paths in your frontmatter
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true
-      }
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          netlifyCmsPaths, // Including in your Remark plugins will transform any paths in your markdown body
+          {
+            resolve: "gatsby-remark-relative-images",
+            options: {
+              name: "uploads"
+            }
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -141,6 +154,12 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 930,
               backgroundColor: "transparent" // required to display blurred image first
+            }
+          },
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: "static"
             }
           },
           "gatsby-remark-component"
@@ -152,8 +171,8 @@ module.exports = {
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ],
   mapping: {
-    "MarkdownRemark.fields.homeservices": `MarkdownRemark`,
-    "MarkdownRemark.fields.ldCoursesUCourses": `MarkdownRemark`,
-    "MarkdownRemark.fields.uCourseLDCourses": `MarkdownRemark`
+    "MarkdownRemark.frontmatter.ldArea.services.service": `MarkdownRemark.frontmatter.title`,
+    "MarkdownRemark.frontmatter.ewsArea.services.service": `MarkdownRemark.frontmatter.title`,
+    "MarkdownRemark.frontmatter.serviceRelated": `MarkdownRemark.frontmatter.title`
   }
 };

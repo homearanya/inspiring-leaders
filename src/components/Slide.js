@@ -40,7 +40,7 @@ export default function Slide(props) {
             <div className="slide_description_wrapper">
               <StyledDescription
                 className="slide_description"
-                hasLinks={props.links && props.links.length > 0}
+                hasLinks={props.sliderLinks && props.sliderLinks.length > 0}
               >
                 <div className="intro-layer" data-animation="fadeInRight">
                   <h3>{props.heading1}</h3>
@@ -53,8 +53,8 @@ export default function Slide(props) {
                 </div>
               </StyledDescription>
             </div>
+            <SlideLinks sliderLinks={props.sliderLinks} />
           </div>
-          <SlideLinks links={props.links} />
         </div>
       </StyledSlide>
     </React.Fragment>

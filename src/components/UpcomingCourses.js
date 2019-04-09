@@ -12,7 +12,7 @@ export default function UpcomingCourses() {
           <div>
             <FilteredCourses
               upcomingCourse={UpcomingCourse}
-              columns="col-lg-6"
+              columns="col-lg-4 col-sm-6"
             />
           </div>
         </div>

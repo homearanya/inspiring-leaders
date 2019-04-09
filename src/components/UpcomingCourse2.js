@@ -26,14 +26,13 @@ const StyledBody = styled.div`
 `;
 
 export default function UpcomingCourse({
-  courseSlug,
   frontmatter: courseInfo,
   html,
   siteUrl,
   columns
 }) {
   const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`;
-
+  const courseSlug = `${courseInfo.serviceRelated.fields.slug}#start-content`;
   return (
     <div className={`${columns} text-center`}>
       <StyledArticle className="vertical-item content-padding post format-standard">

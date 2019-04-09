@@ -1,16 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-# http://alistairmork-chadwick.netlify.com/* https://www.alistairmork-chadwick.co.za/:splat 301!
-# http://alistairmork-chadwick.co.za/* https://www.alistairmork-chadwick.co.za/:splat 301!
-# https://alistairmork-chadwick.co.za/* https://www.alistairmork-chadwick.co.za/:splat 301!
 
-# Redirect with a 301 (default)
-/career-guidance/	/services/career-guidance/
-/psychological-assessments/	/services/psychological-assessments/
-/psychotherapy/	/services/personal-counselling/
-/rates/	/contact/
-/services/	/#services
-/transformative-training/	/services/mindfulness-training/
-/workshops-for-businesses-and-ngos/	/contact/
-/workshops-for-schools/	/contact/
-/workshops-for-the-public/	/contact/
-/workshops-seminars/	/contact/

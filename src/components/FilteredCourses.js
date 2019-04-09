@@ -13,17 +13,17 @@ export default function FilteredCourses({ upcomingCourse, columns, limit }) {
           ) {
             edges {
               node {
-                fields {
-                  uCourseLDCourses {
-                    fields {
-                      slug
-                    }
-                  }
-                }
                 html
                 id
                 frontmatter {
-                  serviceRelated
+                  serviceRelated {
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                    }
+                  }
                   courseName
                   subheading
                   dateStart
@@ -55,7 +55,7 @@ export default function FilteredCourses({ upcomingCourse, columns, limit }) {
             {({ location }) => (
               <React.Fragment>
                 {upcomingCourses.reduce((upcomingCourses, upcomingCourse) => {
-                  const { fields, html, frontmatter, id } = upcomingCourse.node;
+                  const { html, frontmatter, id } = upcomingCourse.node;
                   const courseDate = new Date(
                     upcomingCourse.node.frontmatter.dateStart
                   );
@@ -71,9 +71,6 @@ export default function FilteredCourses({ upcomingCourse, columns, limit }) {
                         key={id}
                         frontmatter={frontmatter}
                         html={html}
-                        courseSlug={`${
-                          fields.uCourseLDCourses.fields.slug
-                        }#start-content`}
                         siteUrl={location.origin}
                         columns={columns}
                       />

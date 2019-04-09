@@ -1,14 +1,16 @@
 ---
-templateKey: service-page
+templateKey: upcoming-courses-page
 title: Upcoming Courses
 excerpt: >-
-  Are you interested in mindfulness training? Join me on one of my upcoming courses.
+  "Leadership Development Training Courses. For organizations and individuals that are looking for deep engagement and long-term impact."
+intro: >-
+  "Leadership Development Training Courses. For organizations and individuals that are looking for deep engagement and long-term impact."
 iconClasses: "fas fa-users"
 thumbnailimage:
-  alt: Mindfulness Training
+  alt: Leadership Development, Upcoming Courses
   image: /img/meditation.png
 bannerimage:
-  alt: Mindfulness Training
+  alt: Leadership Development, Upcoming Courses
   image: /img/leadership-development-upcoming-courses-banner.jpg
 bodyimage:
   alt: Leadership Development, Upcoming Courses

@@ -56,29 +56,29 @@ collections:
                       widget: text,
                       hint: "Please inform. Important for SEO",
                     }
-              - label: Links
-                label_singular: link
-                name: links
-                widget: list
+          - label: Slider Links
+            label_singular: Slider Link
+            name: sliderLinks
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Slug, name: slug, widget: string }
+              - label: Image
+                name: image
+                widget: object
                 fields:
-                  - { label: Name, name: name, widget: string }
-                  - { label: Slug, name: slug, widget: string }
-                  - label: Image
-                    name: image
-                    widget: object
-                    fields:
-                      - {
-                          label: Image,
-                          name: image,
-                          widget: image,
-                          hint: "size 1600 x 700",
-                        }
-                      - {
-                          label: Title,
-                          name: alt,
-                          widget: text,
-                          hint: "Please inform. Important for SEO",
-                        }
+                  - {
+                      label: Image,
+                      name: image,
+                      widget: image,
+                      hint: "size 1600 x 700",
+                    }
+                  - {
+                      label: Title,
+                      name: alt,
+                      widget: text,
+                      hint: "Please inform. Important for SEO",
+                    }
           - label: "Leadership Development Area"
             name: ldArea
             widget: object
@@ -353,7 +353,7 @@ collections:
               label: "Template Key",
               name: "templateKey",
               widget: "hidden",
-              default: "service-page",
+              default: "upcoming-courses-page",
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "text" }
@@ -658,76 +658,6 @@ collections:
                 }
     editor:
       preview: false
-
-  # - name: "services"
-  #   label: "Services"
-  #   label_singular: "Service"
-  #   folder: "src/pages/services"
-  #   create: true
-  #   fields:
-  #     - {
-  #         label: "Template Key",
-  #         name: "templateKey",
-  #         widget: "hidden",
-  #         default: "service-page",
-  #       }
-  #     - { label: "Title", name: "title", widget: "string" }
-  #     - { label: "Intro", name: "intro", widget: "text" }
-  #     - { label: "Excerpt", 
-  #             name: excerpt, 
-  #             widget: text, 
-  #             hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
-  #           }
-  #     - { label: "Body", name: "body", widget: "markdown" }
-  #     - label: "Thumbnail Image"
-  #       name: thumbnailimage
-  #       widget: object
-  #       required: false
-  #       fields:
-  #         - { label: Image, name: image, widget: image, hint: "80 x 90" }
-  #         - {
-  #             label: Title,
-  #             name: alt,
-  #             widget: text,
-  #             hint: "Please inform. Important for SEO",
-  #           }
-  #     - label: "Banner Image"
-  #       name: bannerimage
-  #       widget: object
-  #       required: false
-  #       fields:
-  #         - { label: Image, name: image, widget: image, hint: "1600 x 195" }
-  #         - {
-  #             label: Title,
-  #             name: alt,
-  #             widget: text,
-  #             hint: "Please inform. Important for SEO",
-  #           }
-  #     - label: "Body Image"
-  #       name: bodyimage
-  #       widget: object
-  #       required: false
-  #       fields:
-  #         - { label: Image, name: image, widget: image, hint: "370 x 490" }
-  #         - {
-  #             label: Title,
-  #             name: alt,
-  #             widget: text,
-  #             hint: "Please inform. Important for SEO",
-  #           }
-  #     - label: "Testimonials Area"
-  #       name: testimonialsArea
-  #       widget: object
-  #       fields:
-  #         - label: "Testimonials"
-  #           label_singular: "Testimonial"
-  #           name: testimonials
-  #           widget: list
-  #           fields:
-  #             - { label: Quote, name: quote, widget: text }
-  #             - { label: Author, name: author, widget: string }
-  #   editor:
-  #     preview: false
 
   - name: upcomingCourses
     label: "Upcoming Courses"

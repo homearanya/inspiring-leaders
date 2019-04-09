@@ -46,10 +46,10 @@ export default function({ data }) {
     { title: "About Me", href: null }
   ];
   const pageMeta = {
-    title: `About Me · Counselling Psychologist in Howick`,
+    title: `About Me · Alistair Mork-Chadwick`,
     description:
       frontmatter.excerpt ||
-      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
+      "Alistair Mork-Chadwick is a Counselling psychologist. He draws on the latest research findings on optimal levels of work engagement, cultivating a mindful approach to work, and building emotional intelligence.",
     slug: fields.slug,
     datePublished: false
   };

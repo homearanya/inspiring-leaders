@@ -28,7 +28,7 @@ const StyledSection = styled.section`
 
 export default function AboutArea2(props) {
   return (
-    <StyledSection className="ls columns_padding_25">
+    <StyledSection className="ls section_padding_bottom_100 columns_padding_25">
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-md-push-6">

@@ -26,6 +26,8 @@ bodyimage:
 
 **Short training programmes are offered to leaders and those moving into leadership positions, designed to optimise performance, strengthen leadership skills and increase well-being.**
 
+<button-wrapper><button-container whereto="/leadership-development/upcoming-courses/#start-content" text="Upcoming Courses"></button-container></button-wrapper>
+
 ####Training Programme for Inspirational Leadership
 For organizations and individuals that are looking for deep engagement and long-term impact, two short courses are offered, one of which is SAQA-Accredited (at NQF level 5), focusing on building the emotional intelligence skills of individuals who are either about to step into managerial positions or who are already occupying leadership positions within an organisation.
 

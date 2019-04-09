@@ -1,62 +1,20 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { graphql } from "gatsby";
 import rehypeReact from "rehype-react";
-import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
-// import Content, { HTMLContent } from "../components/Content";
 import TestimonialsArea from "../components/TestimonialsArea";
 import AppointmentArea from "../components/AppointmentArea";
-import Button from "../components/Button";
 import DynamicAnchor from "../components/DynamicAnchor";
-import Accordion from "../components/Accordion";
-import Tab from "../components/Tab";
-import TabHeading from "../components/TabHeading";
-import TabContent from "../components/TabContent";
 import UpcomingCourses from "../components/UpcomingCourses";
-import Topics from "../components/Topics";
-import FAQS from "../components/FAQS";
 import SEO from "../components/SEO/SEO";
 
-const StyledLink = styled(Link)`
-  && {
-    :focus {
-      color: #91d0cc;
-    }
-
-    :hover {
-      cursor: pointer;
-      color: #d9be93;
-    }
-  }
-`;
-
-const StyledImg = styled(Img)`
-  margin-bottom: 50px;
-  @media (min-width: 992px) {
-    margin-bottom: 0;
-  }
-`;
-const ButtonWrapper = styled.div`
-  text-align: center;
-`;
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    "button-wrapper": ButtonWrapper,
-    "button-container": Button,
-    "dynamic-anchor": DynamicAnchor,
-    "gatsby-link": StyledLink,
-    "upcoming-courses": UpcomingCourses,
-    "topics-container": Topics,
-    "faqs-container": FAQS,
-    "accordion-container": Accordion,
-    "tab-container": Tab,
-    "tab-heading": TabHeading,
-    "tab-content": TabContent
+    "upcoming-courses": UpcomingCourses
   }
 }).Compiler;
 
@@ -66,10 +24,6 @@ export default function({ data }) {
   //   Prepare breadcrumbs
   let breadcrumbTitle = "Leadership Development";
   let breadcrumbLink = "/#leadership-development";
-  if (fields.slug.includes("/employee-wellness-support/")) {
-    breadcrumbTitle = "Employee Wellness Support";
-    breadcrumbLink = "/#employee-wellness-support";
-  }
 
   const pages = [
     { title: "Home", href: "/" },
@@ -87,12 +41,12 @@ export default function({ data }) {
     serviceImages.push(frontmatter.bodyimage.image.relativePath);
   }
   const pageMeta = {
-    title: `${frontmatter.title} · ${breadcrumbTitle}`,
-    name: `${frontmatter.title}`,
+    title: `Upcoming Courses · Leadership Development Training Programmes`,
+    name: `Upcoming Courses`,
     description:
       frontmatter.excerpt ||
       frontmatter.intro ||
-      "Alistair Mork-Chadwick is a Counselling psychologist. He draws on the latest research findings on optimal levels of work engagement, cultivating a mindful approach to work, and building emotional intelligence.",
+      "Leadership Development Training Courses. For organizations and individuals that are looking for deep engagement and long-term impact.",
     serviceImages: serviceImages,
     slug: fields.slug,
     datePublished: false
@@ -113,15 +67,7 @@ export default function({ data }) {
       <section className="ls section_padding_top_100 section_padding_bottom_75">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 col-lg-push-8 col-sm-5 col-sm-push-7">
-              {frontmatter.bodyimage && frontmatter.bodyimage.image && (
-                <StyledImg
-                  fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
-                  alt={frontmatter.bodyimage.alt}
-                />
-              )}
-            </div>
-            <div className="col-lg-8 col-lg-pull-4 col-sm-7 col-sm-pull-5">
+            <div className="col-sm-12">
               <DynamicAnchor id="start-content" />
               <h2 className="section_header small">{frontmatter.title}</h2>
               <hr className="divider_30_1" />
@@ -143,8 +89,8 @@ export default function({ data }) {
   );
 }
 
-export const servicePageQuery = graphql`
-  query ServicePage($id: String!) {
+export const upcomingCoursesPageQuery = graphql`
+  query UpcomingCoursesPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
         slug

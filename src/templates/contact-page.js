@@ -17,11 +17,10 @@ export default ({ data }) => {
     { title: "Contact", href: null }
   ];
   const pageMeta = {
-    title: `Contact · Counselling Psychologist in Howick`,
+    title: `Contact · Leadership Development & Employee Wellness Support Services`,
     description:
       frontmatter.excerpt ||
-      `You can contact me by email, phone or through a contact form. 
-    I look forward to answering any questions you may have about the services I offer.`,
+      "You can contact me by email, phone or through a contact form. I look forward to answering any questions you may have about the leadership development & employee wellness support services I offer.",
     slug: fields.slug,
     datePublished: false
   };

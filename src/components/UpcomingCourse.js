@@ -29,7 +29,6 @@ const StyledBody = styled.div`
 `;
 
 export default function UpcomingCourse({
-  courseSlug,
   frontmatter: courseInfo,
   html,
   siteUrl
@@ -42,6 +41,8 @@ export default function UpcomingCourse({
     contentClassName = "";
   }
   const courseUrl = `${siteUrl}/leadership-development/upcoming-courses/`;
+  const courseSlug = `${courseInfo.serviceRelated.fields.slug}#start-content`;
+
   return (
     <StyledArticle className="post side-item content-padding with_shadow">
       <div className="row">

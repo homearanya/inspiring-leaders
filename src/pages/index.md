@@ -11,17 +11,17 @@ slider:
       alt: Leadership Development
       image: /img/leadership-development.jpg
     subheading: Counselling Psychologist
-    links:
-      - name: Leadership Development
-        link: "#leadership-development"
-        image:
-          alt: Leadership Development to advance your career
-          image: /img/leadership-development-slider-icon.jpg
-      - name: Employee Wellness Support
-        link: "#employee-wellness-support"
-        image:
-          alt: Employee Wellness Support
-          image: /img/employee-wellness-support-slider-icon.jpg
+sliderLinks:
+  - name: Leadership Development
+    link: "#leadership-development"
+    image:
+      alt: Leadership Development to advance your career
+      image: "/img/leadership-development-slider-icon.jpg"
+  - name: Employee Wellness Support
+    link: "#employee-wellness-support"
+    image:
+      alt: Employee Wellness Support
+      image: "/img/employee-wellness-support-slider-icon.jpg"
 ldArea:
   blurb:
     paragraphs:
@@ -65,9 +65,9 @@ articlesArea:
   heading: Recent Articles
 testimonialsArea:
   testimonials:
-    - author: ""
+    - author: "Mindfulness Course participant – March 2017"
       quote: >-
-        Each person is unique. Our ability to manage stress, our dietary and movement habits, and our relationships, amongst other factors, all affect our mental health, including our emotional and intellectual functioning. In other words, there are multiple factors that play a role in determining whether an individual is able to sustain high levels of work engagement, happiness and productivity in the workplace.
+        …I’m much more aware of what is going on around me and how I am feeling… I take stock of what is happening and, when flustered, use the techniques to keep me grounded and less emotional…
 ---
 
 I offer businesses, and other organisations, a variety of services to support Leadership Development. These include short training programmes and seminars that are primarily designed to strengthen work engagement, Emotional Intelligence (EQ) in the workplace, stress management, and interpersonal communication amongst other key leadership skills and competencies.

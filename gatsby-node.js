@@ -1,18 +1,10 @@
 const _ = require("lodash");
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
+const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
-// variables to collect information for homepage/services relation
-let homeServicesTitles = [];
-let homeServicesIds = [];
-let servicesObject = new Object();
-let leadershipDevelopmentObject = new Object();
-let coursesObject = new Object();
-
-let homeNodeId;
-
-exports.createPages = ({ actions, graphql, getNode }) => {
-  const { createPage, createNodeField } = actions;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
   return graphql(`
     {
       nonArticlesPages: allMarkdownRemark(
@@ -109,48 +101,19 @@ exports.createPages = ({ actions, graphql, getNode }) => {
         }
       });
     });
-
-    // create node fields for homepage/services relations
-    homeServicesTitles.forEach(service => {
-      if (servicesObject[service]) {
-        homeServicesIds.push(servicesObject[service]);
-      }
-    });
-
-    if (homeServicesIds.length > 0) {
-      createNodeField({
-        node: getNode(homeNodeId),
-        name: `homeservices`,
-        value: homeServicesIds
-      });
-    }
-    // create node fields for upcoming services/mindulness training courses relation
-    for (let key in leadershipDevelopmentObject) {
-      if (
-        leadershipDevelopmentObject.hasOwnProperty(key) &&
-        coursesObject[key]
-      ) {
-        if (coursesObject[key].length > 0) {
-          createNodeField({
-            node: getNode(leadershipDevelopmentObject[key]),
-            name: `ldCoursesUCourses`,
-            value: coursesObject[key]
-          });
-          coursesObject[key].forEach(courseNodeId => {
-            createNodeField({
-              node: getNode(courseNodeId),
-              name: `uCourseLDCourses`,
-              value: leadershipDevelopmentObject[key]
-            });
-          });
-        }
-      }
-    }
   });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
+  if (
+    !(
+      node.fileAbsolutePath &&
+      node.fileAbsolutePath.includes("/general/main-menu.md")
+    )
+  ) {
+    fmImagesToRelative(node); // convert image paths for gatsby images
+  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
@@ -159,52 +122,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value
     });
-    // collect nodes for homepage/services relation
-    if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("home-page")
-    ) {
-      homeNodeId = node.id;
-      if (
-        node.frontmatter.ldArea &&
-        node.frontmatter.ldArea.services.length > 0
-      ) {
-        node.frontmatter.ldArea.services.forEach(service =>
-          homeServicesTitles.push(service.service.trim().toLowerCase())
-        );
-      }
-      if (
-        node.frontmatter.ewsArea &&
-        node.frontmatter.ewsArea.services.length > 0
-      ) {
-        node.frontmatter.ewsArea.services.forEach(service =>
-          homeServicesTitles.push(service.service.trim().toLowerCase())
-        );
-      }
-    } else if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("service-page")
-    ) {
-      servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
-      // collect nodes for upcoming courses/leadership development courses relation
-      leadershipDevelopmentObject[node.frontmatter.title.trim().toLowerCase()] =
-        node.id;
-    } else if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("upcoming-courses")
-    ) {
-      if (coursesObject[node.frontmatter.serviceRelated.trim().toLowerCase()]) {
-        coursesObject[
-          node.frontmatter.serviceRelated.trim().toLowerCase()
-        ].push(node.id);
-      } else {
-        coursesObject[
-          node.frontmatter.serviceRelated.trim().toLowerCase()
-        ] = [];
-        coursesObject[
-          node.frontmatter.serviceRelated.trim().toLowerCase()
-        ].push(node.id);
-      }
-    }
   }
 };

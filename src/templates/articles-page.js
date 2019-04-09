@@ -14,7 +14,7 @@ export default function({ location, data }) {
     { title: "Articles", href: null }
   ];
   const pageMeta = {
-    title: `Articles · Counselling Psychologist in Howick`,
+    title: `Articles · Leadership Development & Employee Wellness Support Services`,
     description:
       frontmatter.excerpt ||
       frontmatter.blurb ||
@@ -22,6 +22,7 @@ export default function({ location, data }) {
     slug: fields.slug,
     datePublished: false
   };
+
   return (
     <Layout currentPageSlug={fields.slug}>
       <SEO
