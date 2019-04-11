@@ -29,7 +29,7 @@ export default function ArticlesArea(props) {
                     image {
                       childImageSharp {
                         fluid(maxWidth: 400) {
-                          ...GatsbyImageSharpFluid
+                          ...GatsbyImageSharpFluid_withWebp
                         }
                       }
                     }

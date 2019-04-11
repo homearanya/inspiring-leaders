@@ -56,7 +56,7 @@ export default function Logo(props) {
                 image {
                   childImageSharp {
                     fluid(maxWidth: 200) {
-                      ...GatsbyImageSharpFluid_noBase64
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                   }
                 }

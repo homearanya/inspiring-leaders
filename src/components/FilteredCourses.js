@@ -33,7 +33,7 @@ export default function FilteredCourses({ upcomingCourse, columns, limit }) {
                     image {
                       childImageSharp {
                         fluid(maxWidth: 750) {
-                          ...GatsbyImageSharpFluid
+                          ...GatsbyImageSharpFluid_withWebp
                         }
                       }
                     }

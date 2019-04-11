@@ -126,7 +126,7 @@ export const articlePageQuery = graphql`
             relativePath
             childImageSharp {
               fluid(maxWidth: 1170) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -136,7 +136,7 @@ export const articlePageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
