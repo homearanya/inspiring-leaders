@@ -49,7 +49,7 @@ This is a highly interactive programme that integrates the theory and practices 
 
 The programme works in three steps:
 
-1. **Attetion Training:** Attention is the basis of all higher cognitive and emotional abilities. Train attention to ensure clarity of mind. This quality of mind – both calm and alert – forms the foundation for emotional intelligence.
+1. **Attention Training:** Attention is the basis of all higher cognitive and emotional abilities. Train attention to ensure clarity of mind. This quality of mind – both calm and alert – forms the foundation for emotional intelligence.
 2. **Self-Knowledge and Self-Mastery:** Use trained attention to understand cognitive and emotional processes. This knowledge provides the individual with the ability to regulate and master emotions.
 3. **Create Useful Habits and Leadership Skills:** Develop the habits of leading with compassion and communicating with insight. These habits can be learned and will create trust that leads to highly productive collaborations.
 
