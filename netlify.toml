@@ -10,11 +10,12 @@
   [headers.values]
     cache-control = "public, max-age=360000"
 # redirects
-# [[redirects]]
-#   from = "http://inspiring-leaders.netlify.com/*"
-#   to = "https://www.inspiring-leaders.co.za/:splat"
-#   status = 301
-# [[redirects]]
-#   from = "https://inspiring-leaders.netlify.com/*"
-#   to = "https://www.inspiring-leaders.co.za/:splat"
-#   status = 301
+[[redirects]]
+  from = "http://inspiring-leaders.netlify.com/*"
+  to = "https://www.inspiring-leaders.co.za/:splat"
+  status = 301
+  
+[[redirects]]
+  from = "https://inspiring-leaders.netlify.com/*"
+  to = "https://www.inspiring-leaders.co.za/:splat"
+  status = 301
