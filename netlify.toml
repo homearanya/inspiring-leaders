@@ -1,0 +1,16 @@
+# build
+[build]
+  publish = "public"
+  command = "gatsby build"
+[build.environment]
+  NODE_OPTIONS = "--max_old_space_size=4096"
+# Headers 
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    cache-control = "public, max-age=360000"
+# redirects
+redirects = [
+  {from = "http://inspiring-leaders.netlify.com/*", to = "https://www.inspiring-leaders.co.za/:splat", status = 301},
+  {from = "https://inspiring-leaders.netlify.com/*", to = "https://www.inspiring-leaders.co.za/:splat", status = 301},
+  ]
