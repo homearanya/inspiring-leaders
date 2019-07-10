@@ -72,14 +72,12 @@ export default function({ data, pageContext }) {
                 <div className="item-content">
                   <header className="entry-header">
                     <div className="entry-date small-text highlight">
-                      <a href="blog-right.html" rel="bookmark">
                         <time
                           className="entry-date"
                           // datetime="2017-03-13T08:50:40+00:00"
                         >
                           {article.frontmatter.date}
                         </time>
-                      </a>
                     </div>
 
                     <h1 className="entry-title">{article.frontmatter.title}</h1>
