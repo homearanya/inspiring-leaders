@@ -1,10 +1,9 @@
-const _ = require("lodash");
-const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
-const { fmImagesToRelative } = require("gatsby-remark-relative-images");
+const _ = require("lodash")
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   return graphql(`
     {
       nonArticlesPages: allMarkdownRemark(
@@ -62,17 +61,17 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()));
-      return Promise.reject(result.errors);
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
     }
 
-    const nonArticles = result.data.nonArticlesPages.edges;
-    const articles = result.data.articlesPages.edges;
+    const nonArticles = result.data.nonArticlesPages.edges
+    const articles = result.data.articlesPages.edges
 
     nonArticles.forEach(({ node }, index) => {
-      const id = node.id;
+      const id = node.id
       createPage({
         path: node.fields.slug,
         component: path.resolve(
@@ -80,13 +79,13 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
-          id
-        }
-      });
-    });
+          id,
+        },
+      })
+    })
 
     articles.forEach(({ node }, index) => {
-      const id = node.id;
+      const id = node.id
       // Prepare related data
       createPage({
         path: node.fields.slug,
@@ -97,30 +96,22 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           id,
           prev: index === 0 ? null : articles[index - 1].node,
-          next: index === articles.length - 1 ? null : articles[index + 1].node
-        }
-      });
-    });
-  });
-};
+          next: index === articles.length - 1 ? null : articles[index + 1].node,
+        },
+      })
+    })
+  })
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  if (
-    !(
-      node.fileAbsolutePath &&
-      node.fileAbsolutePath.includes("/general/main-menu.md")
-    )
-  ) {
-    fmImagesToRelative(node); // convert image paths for gatsby images
-  }
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value
-    });
+      value,
+    })
   }
-};
+}

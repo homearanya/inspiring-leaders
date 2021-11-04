@@ -8,7 +8,7 @@ intro: >-
 iconClasses: "fas fa-users"
 thumbnailimage:
   alt: Leadership Development, Upcoming Courses
-  image: /img/meditation.png
+  image: /img/meditation.jpg
 bannerimage:
   alt: Leadership Development, Upcoming Courses
   image: /img/leadership-development-upcoming-courses-banner.jpg
