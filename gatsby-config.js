@@ -14,14 +14,14 @@ module.exports = {
             With organisations he draws on the latest research findings, specifically 
             those which deal with supporting optimal levels of work engagement, 
             cultivating a mindful approach to work, and building emotional intelligence.
-          `
+          `,
     },
     organization: {
       name: "Inspiring Leaders",
       url: "https://www.inspiring-leaders.co.za",
-      logo: "https://www.inspiring-leaders.co.za/img/logo.png"
+      logo: "https://www.inspiring-leaders.co.za/img/logo.png",
     },
-    siteUrl: "https://www.inspiring-leaders.co.za" // for gatsby plugin sitemap
+    siteUrl: "https://www.inspiring-leaders.co.za", // for gatsby plugin sitemap
   },
   plugins: [
     {
@@ -29,8 +29,8 @@ module.exports = {
       options: {
         host: "https://www.inspiring-leaders.co.za",
         sitemap: "https://www.inspiring-leaders.co.za/sitemap.xml",
-        policy: [{ userAgent: "*", allow: "/" }]
-      }
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
     {
       resolve: `gatsby-plugin-google-tagmanager`,
@@ -39,20 +39,20 @@ module.exports = {
 
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false
+        includeInDevelopment: false,
 
         // Specify optional GTM environment details.
         // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
         // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
-      }
+      },
     },
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Open Sans"]
-        }
-      }
+          families: ["Open Sans"],
+        },
+      },
     },
     `gatsby-plugin-styled-components`,
     {
@@ -84,9 +84,9 @@ module.exports = {
           opengraph: false,
           twitter: false,
           yandex: false,
-          windows: false
-        }
-      }
+          windows: false,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -99,8 +99,8 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",
-        icon: "src/assets/img/icon.png" // This path is relative to the root of the site.
-      }
+        icon: "src/assets/img/icon.png", // This path is relative to the root of the site.
+      },
     },
     `gatsby-plugin-offline`,
     // "gatsby-plugin-remove-serviceworker",
@@ -110,29 +110,29 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/static/img`,
-        name: "uploads"
-      }
+        name: "uploads",
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/general`,
-        name: "general"
-      }
+        name: "general",
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages"
-      }
+        name: "pages",
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src_images`,
-        path: `${__dirname}/src/assets/img/`
-      }
+        path: `${__dirname}/src/assets/img/`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -143,8 +143,8 @@ module.exports = {
           {
             resolve: "gatsby-remark-relative-images",
             options: {
-              name: "uploads"
-            }
+              name: "uploads",
+            },
           },
           {
             resolve: `gatsby-remark-images`,
@@ -153,32 +153,26 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 930,
-              backgroundColor: "transparent" // required to display blurred image first
-            }
+              backgroundColor: "transparent", // required to display blurred image first
+            },
           },
           {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: "static"
-            }
+              destinationDir: "static",
+            },
           },
-          "gatsby-remark-component"
-        ]
-      }
+          "gatsby-remark-component",
+        ],
+      },
     },
     `gatsby-plugin-netlify-cms`,
     "gatsby-plugin-netlify-identity-widget",
-    {
-      resolve: "gatsby-plugin-netlify-cache",
-      options: {
-        cachePublic: true
-      }
-    },
-    "gatsby-plugin-netlify" // make sure to keep it last in the array
+    "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
   mapping: {
     "MarkdownRemark.frontmatter.ldArea.services.service": `MarkdownRemark.frontmatter.title`,
     "MarkdownRemark.frontmatter.ewsArea.services.service": `MarkdownRemark.frontmatter.title`,
-    "MarkdownRemark.frontmatter.serviceRelated": `MarkdownRemark.frontmatter.title`
-  }
-};
+    "MarkdownRemark.frontmatter.serviceRelated": `MarkdownRemark.frontmatter.title`,
+  },
+}
