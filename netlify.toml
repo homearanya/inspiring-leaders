@@ -6,6 +6,7 @@
   NODE_VERSION = "14.18.1"
   NODE_OPTIONS = "--max_old_space_size=4096"
   RUBY_VERSION = "2.6.2"
+  NPM_VERSION = "8.1.2"
 # Headers 
 [[headers]]
   for = "/static/*"
