@@ -19,4 +19,4 @@ thumbnailimage:
 Time: **09:00-16:30 (both days)**  
 Venue: **To be decided**
 
-RSVP and Enquiries via sms to: **[066 269 8229](tel:+27662698229)** or an email to: **[matc@telkomsa.net](mailto:matc@telkomsa.net)**
+RSVP and Enquiries via sms to: **[066 269 8229](tel:+27662698229)** or an email to: **[howickpsychologist@gmail.com](mailto:howickpsychologist@gmail.com)**
